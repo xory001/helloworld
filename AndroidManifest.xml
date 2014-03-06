@@ -22,6 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="StartedServiceActivity"></activity>
+        <service android:name="StrartedIntentSerivce"></service>
     </application>
 
 </manifest>

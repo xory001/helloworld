@@ -1,7 +1,8 @@
 package com.xory.helloworld;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -13,6 +14,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	final private String TAG = "helloworld.MainActivity";
 	private Button mStartedServiceTest;
 	private Button mBoundServiceTest;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,7 +45,9 @@ public class MainActivity extends Activity implements OnClickListener{
 			break;
 			
 		case R.id.StartedServiceTest:
-			Log.i( TAG, "StartedServiceTest clicked" );
+			Log.i( TAG, "StartedServiceTest clicked" ); 
+			Intent intent = new Intent( this, StartedServiceActivity.class );
+			startActivity( intent );
 			break;
 			
 		default:
