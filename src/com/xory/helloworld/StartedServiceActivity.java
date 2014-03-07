@@ -32,8 +32,6 @@ public class StartedServiceActivity extends Activity
 			Intent intent = new Intent( this, StartedIntentSerivce.class );
 			intent.putExtra( "name", "start service" );
 			startService( intent );
-			
-
 		}
 		else if ( R.id.startedservice_stop == v.getId() ){
 			
@@ -43,6 +41,10 @@ public class StartedServiceActivity extends Activity
 			Intent intentBind = new Intent( this, StartedIntentSerivce.class );
 			intentBind.putExtra( "name", "bind service" );
 			bindService( intentBind, this, BIND_AUTO_CREATE );
+		}
+		else if ( R.id.startedservice_unbind == v.getId() ){
+			Log.i( Const.TAG_APP, "StartedServiceActivity::onClick, unbind" );
+			unbindService( this );
 		}
 		
 	}

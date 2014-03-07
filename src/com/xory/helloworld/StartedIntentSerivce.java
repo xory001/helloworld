@@ -49,7 +49,7 @@ public class StartedIntentSerivce extends IntentService {
 	public IBinder onBind(Intent intent) {
 		Log.i( Const.TAG_APP, "StartedIntentSerivce::onBind,name= " + intent.getStringExtra( "name" ) );
 		mLocaltionCallBack = (ILocaltionInfoCallback)intent.getExtras().get( "LocaltionCallBack" );
-		if ( null == mLocaltionCallBack ){
+		if ( null != mLocaltionCallBack ){
 			mLocaltionCallBack.onPositonChange();
 		}
 		
