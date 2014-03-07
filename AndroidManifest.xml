@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name="StartedServiceActivity"></activity>
-        <service android:name="StrartedIntentSerivce"></service>
+        <service android:name="StartedIntentSerivce"></service>
     </application>
 
 </manifest>

@@ -21,6 +21,25 @@
 			        android:id="@+id/startedservice_stop"
 			        android:text="stop service" />   "
 	</LinearLayout>
+	
+    <LinearLayout android:layout_width="match_parent"
+      		    android:layout_height="wrap_content"
+			    android:orientation="horizontal"
+			    android:layout_marginTop="20dp" >
+			    <Button android:layout_width="0dp"
+			        style="?android:attr/buttonStyleSmall"
+			        android:layout_height="wrap_content"
+			        android:layout_weight="1"
+			        android:id="@+id/startedservice_bind"
+			        android:text="bind service" />
+			        
+		        <Button android:layout_width="0dp"
+			        style="?android:attr/buttonStyleSmall"
+			        android:layout_height="wrap_content"
+			        android:layout_weight="1"
+			        android:id="@+id/startedservice_unbind"
+			        android:text="unbind service" />   "
+	</LinearLayout>
     
 
 </LinearLayout>
