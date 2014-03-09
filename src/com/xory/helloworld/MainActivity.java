@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener{
 
@@ -35,6 +37,13 @@ public class MainActivity extends Activity implements OnClickListener{
 		return true;
 	}
 	
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		// TODO Auto-generated method stub
+		Toast toast = Toast.makeText( this, item.getItemId(), Toast.LENGTH_LONG );
+		toast.show();
+		return super.onMenuItemSelected(featureId, item);
+	}
 
 	@Override
 	public void onClick(View v) {
