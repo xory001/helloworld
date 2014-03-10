@@ -19,7 +19,7 @@
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
 			        android:id="@+id/startedservice_stop"
-			        android:text="stop service" />   "
+			        android:text="stop service" />
 	</LinearLayout>
 	
     <LinearLayout android:layout_width="match_parent"

@@ -5,11 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener{
 
@@ -27,6 +25,9 @@ public class MainActivity extends Activity implements OnClickListener{
 		mStartedServiceTest.setOnClickListener( this );
 		mBoundServiceTest = (Button)findViewById( R.id.BoundServiceTest );
 		mBoundServiceTest.setOnClickListener( this );
+		
+		findViewById( R.id.btn_draw_activity ).setOnClickListener( this );
+		
 
 	}
 
@@ -37,13 +38,6 @@ public class MainActivity extends Activity implements OnClickListener{
 		return true;
 	}
 	
-	@Override
-	public boolean onMenuItemSelected(int featureId, MenuItem item) {
-		// TODO Auto-generated method stub
-		Toast toast = Toast.makeText( this, item.getItemId(), Toast.LENGTH_LONG );
-		toast.show();
-		return super.onMenuItemSelected(featureId, item);
-	}
 
 	@Override
 	public void onClick(View v) {
@@ -58,6 +52,9 @@ public class MainActivity extends Activity implements OnClickListener{
 			Intent intent = new Intent( this, StartedServiceActivity.class );
 			startActivity( intent );
 			break;
+			
+		case R.id.btn_draw_activity:
+			startActivity( new Intent( this, DrawActivity.class ) );
 			
 		default:
 			break;

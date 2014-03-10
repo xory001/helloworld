@@ -24,6 +24,7 @@
         </activity>
         <activity android:name="StartedServiceActivity"></activity>
         <service android:name="StartedIntentSerivce"></service>
+        <activity android:name="DrawActivity"></activity>
     </application>
 
 </manifest>
