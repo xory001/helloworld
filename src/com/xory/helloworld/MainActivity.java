@@ -28,7 +28,11 @@ public class MainActivity extends Activity implements OnClickListener{
 		
 		findViewById( R.id.btn_draw_activity ).setOnClickListener( this );
 		
-
+		findViewById( R.id.btn_bc_send ).setOnClickListener( this );
+		findViewById( R.id.btn_send_inner_cast ).setOnClickListener( this );
+		findViewById( R.id.btn_send_global_cast ).setOnClickListener( this );
+		
+		
 	}
 
 	@Override
@@ -55,6 +59,15 @@ public class MainActivity extends Activity implements OnClickListener{
 			
 		case R.id.btn_draw_activity:
 			startActivity( new Intent( this, DrawActivity.class ) );
+			break;
+			
+		case R.id.btn_send_global_cast:
+			Intent cbIntent = new Intent( BroadcastRecvTest.TEST_ACTION );
+			sendBroadcast( cbIntent );
+			break;
+		case R.id.btn_send_inner_cast:
+			sendBroadcast(  new Intent( BroadcastActivity.TEST_ACTION ) );
+			break;	
 			
 		default:
 			break;

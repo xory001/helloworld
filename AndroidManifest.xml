@@ -22,9 +22,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="StartedServiceActivity"></activity>
-        <service android:name="StartedIntentSerivce"></service>
-        <activity android:name="DrawActivity"></activity>
+        <activity android:name="StartedServiceActivity" >
+        </activity>
+
+        <service android:name="StartedIntentSerivce" >
+        </service>
+
+        <activity android:name="DrawActivity" >
+        </activity>
+
+        <receiver android:name="BroadcastActivity$TestBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="BroadcastActivity_inner_action" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="BroadcastRecvTest" >
+            <intent-filter>
+                <action android:name="BroadcastRecvTest_action" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

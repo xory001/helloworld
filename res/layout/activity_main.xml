@@ -25,8 +25,8 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginRight="20dp"
+            android:layout_weight="1"
             android:text="StartedServiceTest" />
 
         <Button
@@ -36,9 +36,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="BoundServiceTest" />
-        
     </LinearLayout>
-      <LinearLayout
+
+    <LinearLayout
+        android:id="@+id/draw_activity"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/buttomLinear"
@@ -49,18 +50,42 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginRight="20dp"
+            android:layout_weight="1"
             android:text="draw test" />
 
         <Button
-            
+            android:id="@+id/btn_bc_send"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="" />
-        
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/broadcast_test"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/draw_activity"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_send_inner_cast"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:text="send_inner_cast" />
+
+        <Button
+            android:id="@+id/btn_send_global_cast"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="send_global_cast" />
     </LinearLayout>
 
 </RelativeLayout>
