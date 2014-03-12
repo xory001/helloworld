@@ -25,6 +25,9 @@
         <activity android:name="StartedServiceActivity" >
         </activity>
 
+        <activity android:name="BroadcastActivity" >
+        </activity>
+        
         <service android:name="StartedIntentSerivce" >
         </service>
 
@@ -41,6 +44,7 @@
                 <action android:name="BroadcastRecvTest_action" />
             </intent-filter>
         </receiver>
+        <activity android:name="ActivityNotification"></activity>
     </application>
 
 </manifest>

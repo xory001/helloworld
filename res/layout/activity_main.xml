@@ -55,12 +55,12 @@
             android:text="draw test" />
 
         <Button
-            android:id="@+id/btn_bc_send"
+            android:id="@+id/btn_bc_activity"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="" />
+            android:text="start bcActivity" />
     </LinearLayout>
 
     <LinearLayout
@@ -86,6 +86,56 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="send_global_cast" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_notification"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/broadcast_test"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_notify_show"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:text="show notify" />
+
+        <Button
+            android:id="@+id/btn_notify_start"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="show notify for activity" />
+    </LinearLayout>
+    
+        <LinearLayout
+        android:id="@+id/linear_notification_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/linear_notification"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_start_notify_activity"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:text="show notify act" />
+
+        <Button
+
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="null" />
     </LinearLayout>
 
 </RelativeLayout>
