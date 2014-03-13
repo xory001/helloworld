@@ -3,25 +3,24 @@
  */
 package com.xory.helloworld;
 
-import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
-import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RemoteViews;
 import android.widget.Toast;
@@ -38,7 +37,10 @@ public class ActivityNotification extends Activity implements OnClickListener {
 	private HandleProgress mHandle = new HandleProgress( this );
 	private NotificationManager  mNotifyMgr;
 	private int m_nNotifyID = 0;
+	private String m_strAction = "recv msg from notify clicked!";
 
+	private BCRecvNotify m_BCRecv = new BCRecvNotify();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -54,8 +56,8 @@ public class ActivityNotification extends Activity implements OnClickListener {
 		m_nNotifyID = (int)System.currentTimeMillis();
 		
 		Log.i( Const.TAG_APP, "main thread:" + Thread.currentThread().getId() );
-
 	}
+	
 
 	@Override
 	public void onClick(View v) {
@@ -72,10 +74,13 @@ public class ActivityNotification extends Activity implements OnClickListener {
 			PendingIntent pdIntent = PendingIntent.getActivity( this, 0, acIntent, 0 );
 			//notifyStart.setLatestEventInfo( this, "notifyTitle", "notifyText", pdIntent );
 			RemoteViews remoteView = new RemoteViews( getPackageName() , R.layout.layout_notify );
-		//	Button btn = new Button( this );
-		//	remoteView.setString( R.id.button1, "setText", "test");
 			notifyStart.contentIntent = pdIntent;
 			notifyStart.contentView = remoteView;
+			PendingIntent bcIntent = PendingIntent.getBroadcast( this, 0, new Intent( m_strAction ), 0 );
+			remoteView.setOnClickPendingIntent( R.id.button1, bcIntent );
+			
+			registerReceiver( m_BCRecv, new IntentFilter( m_strAction ) );
+			
 			mNotifyMgr.notify( m_nNotifyID , notifyStart );
 		}
 		else if (R.id.btn_stop == v.getId()) {
@@ -93,6 +98,8 @@ public class ActivityNotification extends Activity implements OnClickListener {
 		{
 			timer.cancel();
 		}
+		
+		unregisterReceiver( m_BCRecv );
 	}
 	
 	public static void notifyClick( String a ){
@@ -135,6 +142,16 @@ public class ActivityNotification extends Activity implements OnClickListener {
 				Message msg = Message.obtain( mHandle, 1 );
 				mHandle.sendMessage( msg );
 			}
-
+		}
+		
+		class BCRecvNotify extends BroadcastReceiver{
+			@Override
+			public void onReceive(Context context, Intent intent) {
+				mNotifyMgr.cancel( m_nNotifyID );
+				
+				//StatusBarManager barMgr;
+				
+				Toast.makeText( context , "click from:" + intent.getAction(), Toast.LENGTH_SHORT ).show();
+			}
 		}
 }
