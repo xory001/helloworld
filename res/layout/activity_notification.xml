@@ -54,7 +54,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginBottom="20dp"
-        android:indeterminate="true"
+        android:indeterminate="false"
         android:maxHeight="30dp"
         android:minHeight="30dp"
         android:progress="1" >
