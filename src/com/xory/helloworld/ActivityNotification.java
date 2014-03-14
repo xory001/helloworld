@@ -25,6 +25,8 @@ import android.widget.ProgressBar;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
+import com.xory.utility.StatusBarMgr;
+
 /**
  * @author xory
  * 
@@ -72,7 +74,6 @@ public class ActivityNotification extends Activity implements OnClickListener {
 			notifyStart.defaults = Notification.DEFAULT_SOUND;
 			Intent acIntent = new Intent( this, ActivityNotification.class );
 			PendingIntent pdIntent = PendingIntent.getActivity( this, 0, acIntent, 0 );
-			//notifyStart.setLatestEventInfo( this, "notifyTitle", "notifyText", pdIntent );
 			RemoteViews remoteView = new RemoteViews( getPackageName() , R.layout.layout_notify );
 			notifyStart.contentIntent = pdIntent;
 			notifyStart.contentView = remoteView;
@@ -148,9 +149,9 @@ public class ActivityNotification extends Activity implements OnClickListener {
 			@Override
 			public void onReceive(Context context, Intent intent) {
 				mNotifyMgr.cancel( m_nNotifyID );
-				
-				//StatusBarManager barMgr;
-				
+				StatusBarMgr barMgr = new StatusBarMgr( context );
+				barMgr.collapse();
+                 
 				Toast.makeText( context , "click from:" + intent.getAction(), Toast.LENGTH_SHORT ).show();
 			}
 		}
