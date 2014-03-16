@@ -1,5 +1,8 @@
 package com.xory.helloworld;
 
+import com.xory.graphics.ActivityGraphicCustomView;
+import com.xory.graphics.ActivityGraphics;
+
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -35,6 +38,8 @@ public class MainActivity extends Activity implements OnClickListener{
 		findViewById( R.id.btn_notify_start ).setOnClickListener( this );
 		
 		findViewById( R.id.btn_start_notify_activity ).setOnClickListener( this );
+		
+		findViewById( R.id.btn_graphics ).setOnClickListener( this );
 		
 		notifyMgr = (NotificationManager)getSystemService( NOTIFICATION_SERVICE );
 		
@@ -103,6 +108,10 @@ public class MainActivity extends Activity implements OnClickListener{
 			PendingIntent pdIntent = PendingIntent.getActivity( this, 0, acIntent, 0 );
 			notifyStart.setLatestEventInfo( this, "notifyTitle", "notifyText", pdIntent );
 			notifyMgr.notify( 0x111 , notifyStart );
+			break;	
+			
+		case R.id.btn_graphics:
+			startActivity( new Intent( this, ActivityGraphics.class ) );
 			break;	
 			
 		default:

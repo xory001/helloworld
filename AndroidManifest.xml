@@ -46,6 +46,8 @@
             </intent-filter>
         </receiver>
         <activity android:name="ActivityNotification"></activity>
+        <activity android:name="com.xory.graphics.ActivityGraphics"></activity>
+        <activity android:name="com.xory.graphics.ActivityGraphicCustomView"></activity>
     </application>
 
 </manifest>

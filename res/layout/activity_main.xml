@@ -130,12 +130,12 @@
             android:text="show notify act" />
 
         <Button
-
+			 android:id="@+id/btn_graphics"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="null" />
+            android:text="start graphics" />
     </LinearLayout>
 
 </RelativeLayout>

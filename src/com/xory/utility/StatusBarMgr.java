@@ -38,7 +38,7 @@ public class StatusBarMgr {
 	
 	private Context m_context;
 	private Object m_serviceStatusBar;
-	private  Class< ? > m_sysStatusBarManager;
+	private  Class< ? > m_sysStatusBarManager; 
 	
     public StatusBarMgr( Context context ) {
     	 m_context = context;
