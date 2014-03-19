@@ -1,6 +1,6 @@
 package com.xory.helloworld;
 
-import com.xory.graphics.ActivityGraphicCustomView;
+import com.xory.graphics.ActivityGraphicsCustomView;
 import com.xory.graphics.ActivityGraphics;
 
 import android.app.Activity;

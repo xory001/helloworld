@@ -48,7 +48,7 @@ public class StatusBarMgr {
     			 try{
 	    			 m_sysStatusBarManager = Class.forName("android.app.StatusBarManager");
 	    			 if ( null == m_sysStatusBarManager ){
-	        			 Log.w( Const.TAG_XORY_UTIL, "StatusBarMgr::StatusBarMgr, can't find calss: \"android.app.StatusBarManager\"");
+	        			 Log.w( ConstUtil.TAG_XORY_UTIL, "StatusBarMgr::StatusBarMgr, can't find calss: \"android.app.StatusBarManager\"");
 	 				 }
     			 }
     			 catch( Exception e ){
@@ -56,11 +56,11 @@ public class StatusBarMgr {
     			 }
     		 }
     		 else{
-    			 Log.w( Const.TAG_XORY_UTIL, "StatusBarMgr::StatusBarMgr, can't find system service : \"statusbar\"");
+    			 Log.w( ConstUtil.TAG_XORY_UTIL, "StatusBarMgr::StatusBarMgr, can't find system service : \"statusbar\"");
     		 }
     	 }
     	 else{
-    		 Log.w( Const.TAG_XORY_UTIL, "StatusBarMgr::StatusBarMgr, contex is null");
+    		 Log.w( ConstUtil.TAG_XORY_UTIL, "StatusBarMgr::StatusBarMgr, contex is null");
     	 }
 	}
 	
@@ -79,17 +79,17 @@ public class StatusBarMgr {
             	   fnExpand.invoke( m_serviceStatusBar ); 
                }
                else{
-       			   Log.w( Const.TAG_XORY_UTIL, "StatusBarMgr::expand, can't find method: " 
+       			   Log.w( ConstUtil.TAG_XORY_UTIL, "StatusBarMgr::expand, can't find method: " 
        					   + ( IsSystemVersionLessthan42() ? "expand" : "expandNotificationsPanel" ));
                }
            	}  
             catch (Exception e){
-    			Log.w( Const.TAG_XORY_UTIL, "StatusBarMgr::expand, execute exception " );
+    			Log.w( ConstUtil.TAG_XORY_UTIL, "StatusBarMgr::expand, execute exception " );
             	e.printStackTrace();
            }  
        }
        else{
-			 Log.w( Const.TAG_XORY_UTIL, "StatusBarMgr::expand, can't find calss: \"android.app.StatusBarManager\"");
+			 Log.w( ConstUtil.TAG_XORY_UTIL, "StatusBarMgr::expand, can't find calss: \"android.app.StatusBarManager\"");
        }
     }  
 	
@@ -108,17 +108,17 @@ public class StatusBarMgr {
             	   fnExpand.invoke( m_serviceStatusBar ); 
                }
                else{
-       			   Log.w( Const.TAG_XORY_UTIL, "StatusBarMgr::collapse, can't find method: " 
+       			   Log.w( ConstUtil.TAG_XORY_UTIL, "StatusBarMgr::collapse, can't find method: " 
        					   + ( IsSystemVersionLessthan42() ? "collapse" : "collapsePanels" ));
                }
            	}  
             catch (Exception e){
-    			Log.w( Const.TAG_XORY_UTIL, "StatusBarMgr::collapse, execute exception " );
+    			Log.w( ConstUtil.TAG_XORY_UTIL, "StatusBarMgr::collapse, execute exception " );
             	e.printStackTrace();
            }  
        }
        else{
-			 Log.w( Const.TAG_XORY_UTIL, "StatusBarMgr::collapse, can't find calss: \"android.app.StatusBarManager\"");
+			 Log.w( ConstUtil.TAG_XORY_UTIL, "StatusBarMgr::collapse, can't find calss: \"android.app.StatusBarManager\"");
        }
     }
 	

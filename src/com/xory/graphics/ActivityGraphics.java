@@ -24,11 +24,11 @@ public class ActivityGraphics extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		switch ( v.getId() ) {
 		case R.id.btn_view:
-			startActivity( new Intent( this, ActivityGraphicCustomView.class ) );
+			startActivity( new Intent( this, ActivityGraphicsCustomView.class ) );
 			break;
 			
 		case R.id.btn_surfaceview:
-			startActivity( new Intent( this, ActivityGraphicCustomView.class ) );
+			startActivity( new Intent( this, ActivityGraphicsSurfaceView.class ) );
 			break;
 
 		default:
