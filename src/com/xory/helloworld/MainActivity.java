@@ -1,8 +1,5 @@
 package com.xory.helloworld;
 
-import com.xory.graphics.ActivityGraphicsCustomView;
-import com.xory.graphics.ActivityGraphics;
-
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -14,6 +11,9 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.xory.graphics.ActivityGraphics;
+import com.xory.utility.BaseFunction;
+
 public class MainActivity extends Activity implements OnClickListener{
 
 	final private String TAG = "helloworld.MainActivity";
@@ -23,6 +23,10 @@ public class MainActivity extends Activity implements OnClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		String[] volumePaths = BaseFunction.getVolumeList( this );
+		
+		//String strPath = BaseFunction.getExternalStoragePath( this );
 		
 		Log.i( TAG, "onCreate" );
 		findViewById( R.id.StartedServiceTest ).setOnClickListener( this );
