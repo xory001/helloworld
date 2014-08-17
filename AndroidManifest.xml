@@ -49,6 +49,9 @@
         <activity android:name="com.xory.graphics.ActivityGraphics"></activity>
         <activity android:name="com.xory.graphics.ActivityGraphicsCustomView"></activity>
         <activity android:name="com.xory.graphics.ActivityGraphicsSurfaceView"></activity>
+        <activity android:name="com.xory.adapter.ActivityAdapter"></activity>
+        <activity android:name="com.xory.adapter.ActivityArrayAdapter"></activity>
+        <activity android:name="com.xory.adapter.ActivitySimpleAdapter"></activity>
     </application>
 
 </manifest>

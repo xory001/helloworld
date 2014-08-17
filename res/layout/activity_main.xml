@@ -35,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="BoundServiceTest" />
+            android:text="@string/boundservicetest" />
     </LinearLayout>
 
     <LinearLayout
@@ -136,6 +136,32 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="start graphics" />
+    </LinearLayout>
+    
+      <!-- adapter test -->
+     <LinearLayout
+        android:id="@+id/linear_adapter"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/linear_notification_1"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_adapter_test"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:text="adapter_test" />
+
+        <Button
+			 android:id="@+id/btn_empty"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="start empty" />
     </LinearLayout>
 
 </RelativeLayout>

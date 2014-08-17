@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.xory.adapter.ActivityAdapter;
 import com.xory.graphics.ActivityGraphics;
 import com.xory.utility.BaseFunction;
 
@@ -44,6 +45,8 @@ public class MainActivity extends Activity implements OnClickListener{
 		findViewById( R.id.btn_start_notify_activity ).setOnClickListener( this );
 		
 		findViewById( R.id.btn_graphics ).setOnClickListener( this );
+		
+		findViewById( R.id.btn_adapter_test ).setOnClickListener( this );
 		
 		notifyMgr = (NotificationManager)getSystemService( NOTIFICATION_SERVICE );
 		
@@ -117,6 +120,9 @@ public class MainActivity extends Activity implements OnClickListener{
 		case R.id.btn_graphics:
 			startActivity( new Intent( this, ActivityGraphics.class ) );
 			break;	
+			
+		case R.id.btn_adapter_test:
+			startActivity( new Intent( this, ActivityAdapter.class ) );
 			
 		default:
 			break;
