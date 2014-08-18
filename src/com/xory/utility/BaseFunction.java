@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 import android.content.Context;
 import android.os.Environment;
 import android.os.storage.StorageManager;
+import android.widget.Toast;
 
 public class BaseFunction {
 	
@@ -54,5 +55,10 @@ public class BaseFunction {
                             context.getCacheDir().getPath();
          return cachePath;
 	}
+	
+//	public final static void ShowPopInfo( Context context, String strInfo )
+//	{
+//		static Toast _sToast = Toast.makeText( context, strInfo, Toast.LENGTH_LONG );
+//	}
 
 }

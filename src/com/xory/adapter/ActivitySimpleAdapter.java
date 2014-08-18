@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.xory.helloworld.R;
 
 public class ActivitySimpleAdapter extends Activity implements OnItemClickListener {
-	
+	private Toast mToast = null;
 	
 	
 	
@@ -55,9 +55,17 @@ public class ActivitySimpleAdapter extends Activity implements OnItemClickListen
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		if ( parent instanceof ListView ){
-			Toast.makeText( this , 
-					"key1: " + ((TextView)view.findViewById( R.id.tv_name )).getText() 
-					+ ", key2: " + ((TextView)view.findViewById( R.id.tv_size )).getText(), Toast.LENGTH_SHORT ).show();
+			String strInfo = "key1: " + ((TextView)view.findViewById( R.id.tv_name )).getText() 
+					+ ", key2: " + ((TextView)view.findViewById( R.id.tv_size )).getText();
+			if ( null == mToast )
+			{
+				mToast = Toast.makeText( this , strInfo, Toast.LENGTH_LONG );
+			}
+			else
+			{
+				mToast.setText( strInfo );
+			}
+			mToast.show();
 		}
 	}
 
