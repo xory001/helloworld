@@ -17,6 +17,7 @@ public class ActivityAdapter extends Activity implements OnClickListener{
 		setContentView( R.layout.activity_adapter );
 		findViewById( R.id.btn_arrayadapter ).setOnClickListener( this );
 		findViewById( R.id.btn_simpleAdapter ).setOnClickListener( this );
+		findViewById( R.id.btn_baseAdapter ).setOnClickListener( this );
 	}
 	
 	@Override
@@ -33,6 +34,12 @@ public class ActivityAdapter extends Activity implements OnClickListener{
 			case R.id.btn_simpleAdapter:
 			{
 				startActivity( new Intent( this, ActivitySimpleAdapter.class ) );
+			}
+			break;
+			
+			case R.id.btn_baseAdapter:
+			{
+				startActivity( new Intent( this, ActivityBaseAdapter.class ) );
 			}
 			break;
 		}

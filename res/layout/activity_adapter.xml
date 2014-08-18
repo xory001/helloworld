@@ -13,4 +13,9 @@
             android:layout_height="wrap_content"
             android:text="SimpleAdapter"
             android:id="@+id/btn_simpleAdapter"/>
+    <Button android:layout_width="fill_parent" 
+        	style="?android:attr/buttonStyleSmall"
+            android:layout_height="wrap_content"
+            android:text="BaseAdapter"
+            android:id="@+id/btn_baseAdapter"/>
 </LinearLayout>

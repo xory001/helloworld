@@ -52,6 +52,7 @@
         <activity android:name="com.xory.adapter.ActivityAdapter"></activity>
         <activity android:name="com.xory.adapter.ActivityArrayAdapter"></activity>
         <activity android:name="com.xory.adapter.ActivitySimpleAdapter"></activity>
+        <activity android:name="com.xory.adapter.ActivityBaseAdapter"></activity>
     </application>
 
 </manifest>
