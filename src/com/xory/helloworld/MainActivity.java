@@ -25,9 +25,9 @@ public class MainActivity extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		String[] volumePaths = BaseFunction.getVolumeList( this );
-		
+		//String[] volumePaths = BaseFunction.getVolumeList( this );
 		//String strPath = BaseFunction.getExternalStoragePath( this );
+		//List< Map< String, Object >> list = BaseFunction.getAllImages( this );
 		
 		Log.i( TAG, "onCreate" );
 		findViewById( R.id.StartedServiceTest ).setOnClickListener( this );
