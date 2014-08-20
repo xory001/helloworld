@@ -175,5 +175,38 @@ public class BaseFunction {
         
         return list;
     }
+    
+    public final static List< Map< String, Object >> getAllExternalThumbnails( Context context ){
+    	List< Map< String, Object >> list = new ArrayList< Map< String, Object >>();
+    	String[] projection = { MediaStore.Images.Thumbnails._ID,
+    			MediaStore.Images.Thumbnails.IMAGE_ID,
+    			MediaStore.Images.Thumbnails.DATA };
+    	Cursor cursor = MediaStore.Images.Thumbnails.queryMiniThumbnails(
+    			context.getContentResolver(),
+    			MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI,  //内置的URI没有缩略图
+    			MediaStore.Images.Thumbnails.MINI_KIND, projection );//只有mini,没有micro的缩略图
+    	if ( null != cursor ){
+        	if ( cursor.moveToFirst() ){
+		        do{
+		        	Map< String, Object > map = new HashMap< String, Object >();
+//		          for( int i = 0; i < cursor.getColumnCount(); i++ ){
+//		        	  map.put( cursor.getColumnName( i ), 
+//		      			  cursor.getString( i ) );
+//		          }
+// eg(包括所有字段):{height=324, _id=1, _data=/mnt/sdcard/DCIM/.thumbnails/1402577687550.jpg, 
+//		        	kind=1, image_id=223372, width=243}	
+		        	
+		       	    map.put( "id", cursor.getString( cursor.getColumnIndex( MediaStore.Images.Thumbnails._ID ) ) );
+			       	map.put( "imageid", cursor.getString( cursor.getColumnIndex( MediaStore.Images.Thumbnails.IMAGE_ID ) ) );
+			       	map.put( "path", cursor.getString( cursor.getColumnIndex( MediaStore.Images.Thumbnails.DATA ) ) );
+
+			       	list.add( map );
+		        }while( cursor.moveToNext() );
+        	}
+        	cursor.close(); //显式关闭
+    	}
+    	
+    	return list;
+    }
 
 }

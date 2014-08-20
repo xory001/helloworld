@@ -38,7 +38,7 @@ public class SampleBaseAdapter extends BaseAdapter {
 	@Override
 	public int getCount() {
 		//return mListImage.size();
-		return 3;
+		return 30;
 	}
 
 	@Override
@@ -58,14 +58,18 @@ public class SampleBaseAdapter extends BaseAdapter {
 			convertView = mInflater.inflate( R.layout.layout_adapter_base_item, null );
 		}
 		
+//		((ImageView)convertView.findViewById( R.id.iv )).
+//					setImageURI( Uri.parse( mListImage.get( position ).get( "path").toString() ) );
 		((ImageView)convertView.findViewById( R.id.iv )).
-					setImageURI( Uri.parse( mListImage.get( position ).get( "path").toString() ) );
+			setImageURI( Uri.parse( mListImage.get( position ).get( "path").toString() ) );
+		
 		((TextView)convertView.findViewById( R.id.tv_name )).
 		setText( mListImage.get( position ).get( "size").toString() );
 		if ( null != mClickListener ){
 			Button btn = (Button)convertView.findViewById( R.id.btn );
 			btn.setOnClickListener( mClickListener );
 			btn.setTag( Integer.valueOf( position ) );
+			btn.setId( position );
 		}
 		return convertView;
 	}

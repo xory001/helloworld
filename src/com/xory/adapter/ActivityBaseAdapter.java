@@ -20,18 +20,22 @@ public class ActivityBaseAdapter extends Activity implements OnClickListener {
 		setContentView( R.layout.activity_adapter_base );
 		
 		SampleBaseAdapter adapter = new SampleBaseAdapter( this , this );
-		ListView mListView = (ListView)findViewById( R.id.lv_baseadapter );
+		mListView = (ListView)findViewById( R.id.lv_baseadapter );
 		mListView.setAdapter( adapter );
 	}
 
 	@Override
 	public void onClick(View v) {
-		Integer pos = (Integer)v.getTag();
-		if ( pos >= 0 ){
-			View itemView = mListView.getChildAt( pos );
-			TextView tv = (TextView)itemView.findViewById( R.id.tv_name );
-			if ( null != tv ){
-				Toast.makeText( this, tv.getText(), Toast.LENGTH_SHORT ).show();
+		if ( v.getId() == (Integer)v.getTag() ){
+			Integer pos = (Integer)v.getTag();
+			if ( pos >= 0 ){
+				View itemView = mListView.getChildAt( pos - mListView.getFirstVisiblePosition() );
+				if ( null != itemView ){
+					TextView tv = (TextView)itemView.findViewById( R.id.tv_name );
+					if ( null != tv ){
+						Toast.makeText( this, "pos: " + pos + ", " + tv.getText(), Toast.LENGTH_SHORT ).show();
+					}
+				}
 			}
 		}
 	}

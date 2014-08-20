@@ -1,5 +1,8 @@
 package com.xory.helloworld;
 
+import java.util.List;
+import java.util.Map;
+
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -28,6 +31,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		//String[] volumePaths = BaseFunction.getVolumeList( this );
 		//String strPath = BaseFunction.getExternalStoragePath( this );
 		//List< Map< String, Object >> list = BaseFunction.getAllImages( this );
+		List< Map< String, Object >> list = BaseFunction.getAllExternalThumbnails( this );
 		
 		Log.i( TAG, "onCreate" );
 		findViewById( R.id.StartedServiceTest ).setOnClickListener( this );
