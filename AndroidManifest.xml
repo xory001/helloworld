@@ -23,6 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- activity manager -->
+        <activity android:name="com.xory.helloworld.ActivityManager">
+        </activity>
+        
         <activity android:name="StartedServiceActivity" >
         </activity>
 
@@ -46,13 +51,40 @@
             </intent-filter>
         </receiver>
         <activity android:name="ActivityNotification"></activity>
-        <activity android:name="com.xory.graphics.ActivityGraphics"></activity>
-        <activity android:name="com.xory.graphics.ActivityGraphicsCustomView"></activity>
-        <activity android:name="com.xory.graphics.ActivityGraphicsSurfaceView"></activity>
-        <activity android:name="com.xory.adapter.ActivityAdapter"></activity>
-        <activity android:name="com.xory.adapter.ActivityArrayAdapter"></activity>
-        <activity android:name="com.xory.adapter.ActivitySimpleAdapter"></activity>
-        <activity android:name="com.xory.adapter.ActivityBaseAdapter"></activity>
+
+         <!-- ****graphics -->
+        <activity android:name="com.xory.graphics.ActivityGraphicsCustomView">
+            <intent-filter>
+                <action android:name="com.xory.helloworld.action" />
+                <category android:name="com.xory.helloworld.category" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.xory.graphics.ActivityGraphicsSurfaceView">
+            <intent-filter>
+                <action android:name="com.xory.helloworld.action" />
+                <category android:name="com.xory.helloworld.category" />
+            </intent-filter>
+        </activity>
+      
+        <!-- ****Adapter & AdapterView -->
+        <activity android:name="com.xory.adapter.ActivityArrayAdapter">
+            <intent-filter>
+                <action android:name="com.xory.helloworld.action" />
+                <category android:name="com.xory.helloworld.category" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.xory.adapter.ActivitySimpleAdapter">
+            <intent-filter>
+                <action android:name="com.xory.helloworld.action" />
+                <category android:name="com.xory.helloworld.category" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.xory.adapter.ActivityBaseAdapter">
+            <intent-filter>
+                <action android:name="com.xory.helloworld.action" />
+                <category android:name="com.xory.helloworld.category" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -4,6 +4,7 @@
 package com.xory.thread;
 
 import android.app.Activity;
+import android.os.Bundle;
 
 /**
  * @author xory
@@ -15,5 +16,12 @@ import android.app.Activity;
  *                       http://smallwoniu.blog.51cto.com/3911954/1252156
  */
 public class ActivityAsyncTask extends Activity {
+	
+	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+	}
 
 }

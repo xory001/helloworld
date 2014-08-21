@@ -1,9 +1,11 @@
 package com.xory.helloworld;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -13,46 +15,65 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
-import com.xory.adapter.ActivityAdapter;
-import com.xory.graphics.ActivityGraphics;
-import com.xory.utility.BaseFunction;
-
-public class MainActivity extends Activity implements OnClickListener{
+public class MainActivity extends ListActivity implements OnClickListener{
 
 	final private String TAG = "helloworld.MainActivity";
 	private NotificationManager  notifyMgr;
+	private List< Map< String, Object > > mListActivity = new ArrayList< Map< String, Object > >();
+
+	public MainActivity(){
+								//title						package
+		String[] strItemText = {"Adapter and AdapterView", "com.xory.adapter",
+								"multi thread and async operate", "com.xory.thread",
+								"graphics", "com.xory.graphics"};
+		for( int i = 0; i < strItemText.length; i += 2 ){
+			Map< String, Object > mapActivity = new HashMap< String, Object >();
+			mapActivity.put( "title", strItemText[i] );
+			mapActivity.put( "package", strItemText[i + 1 ] );
+			mListActivity.add( mapActivity );
+		}
+
+	}
+
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		
+		 setListAdapter(new SimpleAdapter(this, mListActivity,
+	                android.R.layout.simple_list_item_1, new String[] { "title" },
+	                new int[] { android.R.id.text1 }));
+		//setContentView(R.layout.activity_main);
 		
 		//String[] volumePaths = BaseFunction.getVolumeList( this );
 		//String strPath = BaseFunction.getExternalStoragePath( this );
 		//List< Map< String, Object >> list = BaseFunction.getAllImages( this );
-		List< Map< String, Object >> list = BaseFunction.getAllExternalThumbnails( this );
-		
-		Log.i( TAG, "onCreate" );
-		findViewById( R.id.StartedServiceTest ).setOnClickListener( this );
-		findViewById( R.id.BoundServiceTest ).setOnClickListener( this );
-		
-		findViewById( R.id.btn_draw_activity ).setOnClickListener( this );
-		
-		findViewById( R.id.btn_bc_activity ).setOnClickListener( this );
-		findViewById( R.id.btn_send_inner_cast ).setOnClickListener( this );
-		findViewById( R.id.btn_send_global_cast ).setOnClickListener( this );
-		
-		findViewById( R.id.btn_notify_show ).setOnClickListener( this );
-		findViewById( R.id.btn_notify_start ).setOnClickListener( this );
-		
-		findViewById( R.id.btn_start_notify_activity ).setOnClickListener( this );
-		
-		findViewById( R.id.btn_graphics ).setOnClickListener( this );
-		
-		findViewById( R.id.btn_adapter_test ).setOnClickListener( this );
-		
-		notifyMgr = (NotificationManager)getSystemService( NOTIFICATION_SERVICE );
+//		List< Map< String, Object >> list = BaseFunction.getAllExternalThumbnails( this );
+//		
+//		Log.i( TAG, "onCreate" );
+//		findViewById( R.id.StartedServiceTest ).setOnClickListener( this );
+//		findViewById( R.id.BoundServiceTest ).setOnClickListener( this );
+//		
+//		findViewById( R.id.btn_draw_activity ).setOnClickListener( this );
+//		
+//		findViewById( R.id.btn_bc_activity ).setOnClickListener( this );
+//		findViewById( R.id.btn_send_inner_cast ).setOnClickListener( this );
+//		findViewById( R.id.btn_send_global_cast ).setOnClickListener( this );
+//		
+//		findViewById( R.id.btn_notify_show ).setOnClickListener( this );
+//		findViewById( R.id.btn_notify_start ).setOnClickListener( this );
+//		
+//		findViewById( R.id.btn_start_notify_activity ).setOnClickListener( this );
+//		
+//		findViewById( R.id.btn_graphics ).setOnClickListener( this );
+//		
+//		findViewById( R.id.btn_adapter_test ).setOnClickListener( this );
+//		
+//		notifyMgr = (NotificationManager)getSystemService( NOTIFICATION_SERVICE );
 		
 		
 	}
@@ -64,6 +85,14 @@ public class MainActivity extends Activity implements OnClickListener{
 		return true;
 	}
 	
+    @Override
+    @SuppressWarnings("unchecked")
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        Map<String, Object> map = (Map<String, Object>)l.getItemAtPosition(position);
+    	Intent intent = new Intent( this, ActivityManager.class );
+    	intent.putExtra( Const.EXTRA_KEY, map.get( "package" ).toString() );
+    	startActivity(intent);
+    }
 
 	@Override
 	public void onClick(View v) {
@@ -121,12 +150,6 @@ public class MainActivity extends Activity implements OnClickListener{
 			notifyMgr.notify( 0x111 , notifyStart );
 			break;	
 			
-		case R.id.btn_graphics:
-			startActivity( new Intent( this, ActivityGraphics.class ) );
-			break;	
-			
-		case R.id.btn_adapter_test:
-			startActivity( new Intent( this, ActivityAdapter.class ) );
 			
 		default:
 			break;
