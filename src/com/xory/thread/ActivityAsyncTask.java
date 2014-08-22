@@ -4,6 +4,8 @@
 package com.xory.thread;
 
 import android.app.Activity;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 /**
@@ -24,4 +26,8 @@ public class ActivityAsyncTask extends Activity {
 		super.onCreate(savedInstanceState);
 	}
 
+	
+	protected void DownloadImage( Uri url ){
+		//AsyncTask asyncTask = new AsyncTask( void, void ,void )();
+	}
 }

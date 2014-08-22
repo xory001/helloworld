@@ -85,6 +85,23 @@
                 <category android:name="com.xory.helloworld.category" />
             </intent-filter>
         </activity>
+        
+        <!-- ************ -->
+        <!-- mutil thread -->
+        <!-- ************ -->
+        <activity android:name="com.xory.thread.ActivityMultiThread">
+            <intent-filter>
+                <action android:name="com.xory.helloworld.action" />
+                <category android:name="com.xory.helloworld.category" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.xory.thread.ActivityAsyncTask">
+            <intent-filter>
+                <action android:name="com.xory.helloworld.action" />
+                <category android:name="com.xory.helloworld.category" />
+            </intent-filter>
+        </activity>
+        
     </application>
 
 </manifest>

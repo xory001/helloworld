@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+    
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="center_horizontal">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_mutilthread_start"
+        android:text="start thread" />
+    <Space
+        android:layout_width="20dp"
+        android:layout_height="match_parent" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_mutilthread_stop"
+        android:text="stop thread" />"
+
+	</LinearLayout>
+	
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+     <TextView  android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_mutilthread_info"
+        android:textSize="30sp"
+        android:gravity="center"/>
+
+</LinearLayout>
