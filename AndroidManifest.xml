@@ -85,6 +85,24 @@
                 <category android:name="com.xory.helloworld.category" />
             </intent-filter>
         </activity>
+        <activity android:name="com.xory.adapter.ActivitySimpleCursorAdapter">
+            <intent-filter>
+                <action android:name="com.xory.helloworld.action" />
+                <category android:name="com.xory.helloworld.category" />
+            </intent-filter>            
+        </activity>
+        <activity android:name="com.xory.adapter.ActivityGridView">
+            <intent-filter>
+                <action android:name="com.xory.helloworld.action" />
+                <category android:name="com.xory.helloworld.category" />
+            </intent-filter>            
+        </activity>
+        <activity android:name="com.xory.adapter.ActivitySpinner">
+            <intent-filter>
+                <action android:name="com.xory.helloworld.action" />
+                <category android:name="com.xory.helloworld.category" />
+            </intent-filter>            
+        </activity>
         
         <!-- ************ -->
         <!-- mutil thread -->
@@ -101,6 +119,7 @@
                 <category android:name="com.xory.helloworld.category" />
             </intent-filter>
         </activity>
+
         
     </application>
 

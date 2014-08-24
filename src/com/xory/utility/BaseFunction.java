@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +21,8 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.storage.StorageManager;
 import android.provider.MediaStore;
+import android.util.DisplayMetrics;
+import android.widget.Toast;
 
 public class BaseFunction {
 	private final static String TAG = "com.xory.util.baseFun";
@@ -176,6 +179,8 @@ public class BaseFunction {
         return list;
     }
     
+    //这个函数不靠谱,主要是通过读取 /data/data/com.android.providers.mediea/database/ 
+    // 下面的2个数据库: external.db,internal.db,但是这2个数据库内容经常不准
     public final static List< Map< String, Object >> getAllExternalThumbnails( Context context ){
     	List< Map< String, Object >> list = new ArrayList< Map< String, Object >>();
     	String[] projection = { MediaStore.Images.Thumbnails._ID,
@@ -208,5 +213,21 @@ public class BaseFunction {
     	
     	return list;
     }
+    
+    public final static DisplayMetrics getDisplayMetrics( Activity activity ){
+        DisplayMetrics metric = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(metric);
+        LogInfo.i( TAG, "BaseFunction::getDisplayMetrics,screen width: " +  metric.widthPixels
+        		 + " ,screen height: " + metric.heightPixels + ", screen density: " + metric.density 
+        		 + ", screen densityDpi: " + metric.densityDpi );
+        return metric;
+    }
+
+    public final static Toast getToast( Context context, int duration ){
+    	Toast toast = Toast.makeText( context, "", duration );
+    	toast.setDuration( duration );
+    	return toast;
+    }
+    
 
 }

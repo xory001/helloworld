@@ -18,6 +18,8 @@ import android.view.View.OnClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.xory.utility.BaseFunction;
+
 public class MainActivity extends ListActivity implements OnClickListener{
 
 	final private String TAG = "helloworld.MainActivity";
@@ -49,6 +51,7 @@ public class MainActivity extends ListActivity implements OnClickListener{
 	                new int[] { android.R.id.text1 }));
 		//setContentView(R.layout.activity_main);
 		
+		// BaseFunction.getDisplayMetrics( this );
 		//String[] volumePaths = BaseFunction.getVolumeList( this );
 		//String strPath = BaseFunction.getExternalStoragePath( this );
 		//List< Map< String, Object >> list = BaseFunction.getAllImages( this );

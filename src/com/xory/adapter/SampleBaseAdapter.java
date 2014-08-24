@@ -6,6 +6,7 @@ import java.util.Map;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.xory.helloworld.Const;
 import com.xory.helloworld.R;
 import com.xory.utility.BaseFunction;
 
@@ -23,6 +25,7 @@ public class SampleBaseAdapter extends BaseAdapter {
 	private Context mContext = null;
 	private LayoutInflater mInflater;
 	private List< Map< String, Object >> mListImage = new ArrayList< Map< String, Object >>();
+
 	
 	public SampleBaseAdapter() {
 	}
@@ -53,25 +56,59 @@ public class SampleBaseAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		if ( null == convertView )
-		{
+		//final Holder holder;
+		if ( null == convertView ){
 			convertView = mInflater.inflate( R.layout.layout_adapter_base_item, null );
+//			holder = new Holder();
+//			holder.text = ((TextView)convertView.findViewById( R.id.tv_name ));
+//			holder.btn = (Button)convertView.findViewById( R.id.btn );
+//			convertView.setTag( holder );
 		}
+		else{
+			//holder = (Holder)convertView.getTag();
+
+//			ViewGroup viewParent = (ViewGroup)convertView;
+//			for ( int i = 0; i < viewParent.getChildCount(); i++ ){
+//				View childView = viewParent.getChildAt( i );
+//				Log.i( Const.TAG_APP, "SampleBaseAdapter::getView, pos, chind view id: " + position + ", " + childView.getId() );
+//			}
+		}
+		
+
 		
 //		((ImageView)convertView.findViewById( R.id.iv )).
 //					setImageURI( Uri.parse( mListImage.get( position ).get( "path").toString() ) );
 		((ImageView)convertView.findViewById( R.id.iv )).
-			setImageURI( Uri.parse( mListImage.get( position ).get( "path").toString() ) );
+			setImageResource( R.drawable.btn_radio_on_selected );
 		
-		((TextView)convertView.findViewById( R.id.tv_name )).
-		setText( mListImage.get( position ).get( "size").toString() );
+		TextView tv = ((TextView)convertView.findViewById( R.id.tv_name ));
+		tv.setText( "textview,pos: " + position ); //+ "\nimage szie:" + mListImage.get( position ).get( "size").toString() );
 		if ( null != mClickListener ){
 			Button btn = (Button)convertView.findViewById( R.id.btn );
 			btn.setOnClickListener( mClickListener );
+			btn.setText( "btn,pos: " + position );
 			btn.setTag( Integer.valueOf( position ) );
-			btn.setId( position );
 		}
+
+		
+//		if( null != holder){
+//			holder.text.setText( "itme pos: " + position );  
+//			holder.btn.setOnClickListener(new OnClickListener() {  
+//		        @Override  
+//		        public void onClick(View v) {  
+//		        	holder.text.setText( "btn click");  
+//		        }  
+//		    }); 
+//		}
+		
 		return convertView;
 	}
+	
+
+	//holder的作用就是当item view重新利用的时候,省去findViewById找子id消耗的时间
+	class Holder{  
+	    TextView text;  
+	    Button btn;  
+	}  
 
 }
