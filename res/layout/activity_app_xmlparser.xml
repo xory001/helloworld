@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <Button  android:layout_width="match_parent"
+	    android:layout_height="40dp"
+	     style="?android:attr/buttonStyleSmall"
+	    android:id="@+id/btn_sax" 
+	    android:text="sax parser"/>
+   <Button  android:layout_width="match_parent"
+	    android:layout_height="40dp"
+	     style="?android:attr/buttonStyleSmall"
+	    android:id="@+id/btn_dom" 
+	    android:text="dom parser"
+	    android:layout_below="@+id/btn_sax"/>
+     <Button  android:layout_width="match_parent"
+	    android:layout_height="40dp"
+	     style="?android:attr/buttonStyleSmall"
+	    android:id="@+id/btn_xmlpull" 
+	    android:text="xmlpull parser"
+	    android:layout_below="@+id/btn_dom"/>
+       <TextView  android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:id="@+id/tv_info" 
+		    android:layout_below="@+id/btn_xmlpull"
+		    android:background="@drawable/text_rect"/>
+
+</RelativeLayout>

@@ -30,7 +30,8 @@ public class MainActivity extends ListActivity implements OnClickListener{
 								//title						package
 		String[] strItemText = {"Adapter and AdapterView", "com.xory.adapter",
 								"multi thread and async operate", "com.xory.thread",
-								"graphics", "com.xory.graphics"};
+								"graphics", "com.xory.graphics",
+								"app class", "com.xory.app"};
 		for( int i = 0; i < strItemText.length; i += 2 ){
 			Map< String, Object > mapActivity = new HashMap< String, Object >();
 			mapActivity.put( "title", strItemText[i] );

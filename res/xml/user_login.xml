@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Result>
+	<Code>1</Code>
+	<Desc>成功</Desc>
+	<ResultData>
+		<UserInfo>
+			<UserID>1</UserID>
+			<UserName>学员1号</UserName>
+			<UserType >0</UserType>
+			<MenuCodeState>MC0001,MC0002</MenuCodeState>
+		</UserInfo>
+	</ResultData>
+</Result>
+
