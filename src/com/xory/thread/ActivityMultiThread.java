@@ -29,33 +29,33 @@ import com.xory.helloworld.R;
  *       http://www.cnblogs.com/xiaoluo501395377/p/3430542.html
  *       http://smallwoniu.blog.51cto.com/3911954/1252156
  * 
- *       *** ¹ØÓÚ Handler mHandler = new Handler(){...} µÄ¾¯¸æ "This Handler class should be static or leaks might occur" 
- * Ô­ÒòÈçÏÂ: 
- * 1. Android³ÌĞòµÄUIÏß³ÌÖĞµÄ¸÷ÖÖActivityÊ¹ÓÃÁËÍ¬Ò»¸öÏûÏ¢¶ÓÁĞ( Looper.getMainLooper() ) 
- * 2. ÔÚUIÏß³ÌÖĞ, Handler mHandler = new Handler() »áÊ¹µÃ mHandler ¹ØÁªµ½ MainLooper()
- *       (ÆäËû Handler ¹¹Ôìº¯Êı¿ÉÒÔÖ¸¶¨Ò»¸öLooper) 
- * 3. Í¨¹ı mHandler.sendMessage( msg ) ·¢ËÍµÄÏûÏ¢, Ê¹µÃ msg.target = mHandler , ÏûÏ¢±£³ÖÁË¶ÔHandlerµÄÒıÓÃ 
- * 4. Èç¹û Activity OnDestroy() µÄÊ±ºò, ´Ë Activity ÄÚ²¿¶ÔÏó mHandler ·¢ËÍµÄÏûÏ¢»¹Ã»ÓĞ´¦ÀíÍê, 
- *       ÄÇÃ´»áµ¼ÖÂ mHandler ¶ÔÏó²»ÄÜGC, Ò²¼ä½Óµ¼ÖÂ    Activity ²»ÄÜ±»GC,Òò´ËÔì³É×ÊÔ´Ğ¹Â¶ 
+ *       *** å…³äº Handler mHandler = new Handler(){...} çš„è­¦å‘Š "This Handler class should be static or leaks might occur" 
+ * åŸå› å¦‚ä¸‹: 
+ * 1. Androidç¨‹åºçš„UIçº¿ç¨‹ä¸­çš„å„ç§Activityä½¿ç”¨äº†åŒä¸€ä¸ªæ¶ˆæ¯é˜Ÿåˆ—( Looper.getMainLooper() ) 
+ * 2. åœ¨UIçº¿ç¨‹ä¸­, Handler mHandler = new Handler() ä¼šä½¿å¾— mHandler å…³è”åˆ° MainLooper()
+ *       (å…¶ä»– Handler æ„é€ å‡½æ•°å¯ä»¥æŒ‡å®šä¸€ä¸ªLooper) 
+ * 3. é€šè¿‡ mHandler.sendMessage( msg ) å‘é€çš„æ¶ˆæ¯, ä½¿å¾— msg.target = mHandler , æ¶ˆæ¯ä¿æŒäº†å¯¹Handlerçš„å¼•ç”¨ 
+ * 4. å¦‚æœ Activity OnDestroy() çš„æ—¶å€™, æ­¤ Activity å†…éƒ¨å¯¹è±¡ mHandler å‘é€çš„æ¶ˆæ¯è¿˜æ²¡æœ‰å¤„ç†å®Œ, 
+ *       é‚£ä¹ˆä¼šå¯¼è‡´ mHandler å¯¹è±¡ä¸èƒ½GC, ä¹Ÿé—´æ¥å¯¼è‡´    Activity ä¸èƒ½è¢«GC,å› æ­¤é€ æˆèµ„æºæ³„éœ² 
  *       
- *½â¾ö·½·¨1: 
- *1. ¶¨ÒåÒ»¸ö¼Ì³Ğ×Ô Handler µÄÀà MyHandler, ÔÚÄÚ²¿±£³Ö¶Ô  MyActivity µÄÈõÒıÓÃ, WeakReference<MyActivity> mActivity 
- *2. Èç¹û MyHandler ¶¨ÒåÔÚ MyActivity µÄÄÚ²¿, ÔòÓ¦¸Ã¶¨Òå³É static 
- *3. ÔÚÊ¹ÓÃ mActivity Ç°, ÅĞ¶ÏactivityÊÇ·ñÎª¿Õ:
+ *è§£å†³æ–¹æ³•1: 
+ *1. å®šä¹‰ä¸€ä¸ªç»§æ‰¿è‡ª Handler çš„ç±» MyHandler, åœ¨å†…éƒ¨ä¿æŒå¯¹  MyActivity çš„å¼±å¼•ç”¨, WeakReference<MyActivity> mActivity 
+ *2. å¦‚æœ MyHandler å®šä¹‰åœ¨ MyActivity çš„å†…éƒ¨, åˆ™åº”è¯¥å®šä¹‰æˆ static 
+ *3. åœ¨ä½¿ç”¨ mActivity å‰, åˆ¤æ–­activityæ˜¯å¦ä¸ºç©º:
  *       MyActivity activity = mActivity.get(); 
  *       if ( null != activity ){ 
  *           do something 
  *       }
- *4. ÔÚ MyActivity OnDestroy() µÄÊ±ºò, handler.removeCallbacksAndMessages(null), Çå³ı¸ÃhandlerµÄËùÓĞÏûÏ¢
+ *4. åœ¨ MyActivity OnDestroy() çš„æ—¶å€™, handler.removeCallbacksAndMessages(null), æ¸…é™¤è¯¥handlerçš„æ‰€æœ‰æ¶ˆæ¯
  *
- * ½â¾ö·½·¨2:
- * 1. ¶¨ÒåÒ»¸ö¼Ì³Ğ×Ô Handler µÄÀà MyHandler, ÄÚ²¿³ÉÔ±±ä MyActivity mActivity, ±£³Ö¶Ô   MyActivity µÄÇ¿ÒıÓÃ 
- * 2. Èç¹û MyHandler ¶¨ÒåÔÚ MyActivity µÄÄÚ²¿, ÔòÓ¦¸Ã¶¨Òå³É static 
- * 3. ÔÚ    Activity OnDestroy() µÄÊ±ºò, handler.removeCallbacksAndMessages(null), Çå³ı¸ÃhandlerµÄËùÓĞÏûÏ¢, 
- *       Í¬Ê±, ÉèÖÃ MyHandler µÄ mActivity = null À´½â³ı¶Ô MyActivity µÄÇ¿ÒıÓÃ
+ * è§£å†³æ–¹æ³•2:
+ * 1. å®šä¹‰ä¸€ä¸ªç»§æ‰¿è‡ª Handler çš„ç±» MyHandler, å†…éƒ¨æˆå‘˜å˜ MyActivity mActivity, ä¿æŒå¯¹   MyActivity çš„å¼ºå¼•ç”¨ 
+ * 2. å¦‚æœ MyHandler å®šä¹‰åœ¨ MyActivity çš„å†…éƒ¨, åˆ™åº”è¯¥å®šä¹‰æˆ static 
+ * 3. åœ¨    Activity OnDestroy() çš„æ—¶å€™, handler.removeCallbacksAndMessages(null), æ¸…é™¤è¯¥handlerçš„æ‰€æœ‰æ¶ˆæ¯, 
+ *       åŒæ—¶, è®¾ç½® MyHandler çš„ mActivity = null æ¥è§£é™¤å¯¹ MyActivity çš„å¼ºå¼•ç”¨
  *       
- *       ***ÒÔÉÏÃèÊö¿É²Î¿¼: http://my.oschina.net/dragonboyorg/blog/160986 
- *       ***±¾Àà    ActivityMultiThread ²ÉÓÃµÚÒ»ÖÖ·½·¨,ÈõÒıÓÃ
+ *       ***ä»¥ä¸Šæè¿°å¯å‚è€ƒ: http://my.oschina.net/dragonboyorg/blog/160986 
+ *       ***æœ¬ç±»    ActivityMultiThread é‡‡ç”¨ç¬¬ä¸€ç§æ–¹æ³•,å¼±å¼•ç”¨
  * 
  */
 public class ActivityMultiThread extends Activity implements OnClickListener {
@@ -65,7 +65,7 @@ public class ActivityMultiThread extends Activity implements OnClickListener {
 	private boolean mbRunning = true;
 	private HandlerMsg mHandler;
 
-	//²Î¿¼:https://www.ibm.com/developerworks/cn/java/j-lo-enum/
+	//å‚è€ƒ:https://www.ibm.com/developerworks/cn/java/j-lo-enum/
 	public enum WeekDayEnum {
 		Mon, Tue, Wed, Thu, Fri, Sat, Sun
 	}
@@ -140,7 +140,7 @@ public class ActivityMultiThread extends Activity implements OnClickListener {
 			case 0:
 				ActivityMultiThread activity = mHostActivity.get();
 				if (null != activity) {
-					activity.mTVInfo.setText("ÊÅÈ¥ÁË " + msg.obj + " Ãë");
+					activity.mTVInfo.setText("é€å»äº† " + msg.obj + " ç§’");
 					Log.i(Const.TAG_APP,
 							"ActivityMultiThread::Handler::handleMessage, activity.mTVInfo != null");
 				} else {

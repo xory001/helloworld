@@ -14,7 +14,7 @@ import android.widget.ListView;
 import com.xory.helloworld.R;
 
 /**
- * @author ÖìÆðÎ°
+ * @author æœ±èµ·ä¼Ÿ
  *
  */
 public class ActivityArrayAdapter extends Activity {

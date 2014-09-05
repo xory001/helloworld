@@ -22,7 +22,7 @@ import android.widget.Toast;
 /**
  * @author xory
  * @Created data 2014.08.21 14:50
- * @ 显示指定包名下面的Activity    
+ * @ 鏄剧ず鎸囧畾鍖呭悕涓嬮潰鐨凙ctivity    
  */
 public class ActivityManager extends ListActivity {
 	private final String KEY_TITLE = "title";

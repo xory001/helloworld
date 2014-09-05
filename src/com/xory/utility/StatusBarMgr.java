@@ -9,7 +9,7 @@ import android.content.Context;
 import android.util.Log;
 
 /**
- * @author ÖìÆğÎ°
+ * @author æœ±èµ·ä¼Ÿ
  * @date 2014.03.14
  */
 /* 

@@ -101,10 +101,10 @@ public class ActivityGraphicsSurfaceView extends Activity {
 	                //Date curr = new Date();
 	                rotate=rotate+1;
 	                try{
-		                canvas = m_svHolder.lockCanvas();//»ñÈ¡canvas
+		                canvas = m_svHolder.lockCanvas();//è·å–canvas
 		    			paint.setColor( Color.rgb(random.nextInt(255), random.nextInt(255), random
 		                        .nextInt(255)));
-		                paint.setStrokeWidth(2);/*ÉèÖÃpaintµÄÍâ¿ò¿í¶È*/
+		                paint.setStrokeWidth(2);/*è®¾ç½®paintçš„å¤–æ¡†å®½åº¦*/
 		                Path mPath = new Path();
 		                mPath.moveTo(random.nextInt(450), random.nextInt(600));
 		                mPath.lineTo(random.nextInt(300), random.nextInt(400));
@@ -115,14 +115,14 @@ public class ActivityGraphicsSurfaceView extends Activity {
 	                catch (Exception e) {
 	                    e.printStackTrace();
 	                }finally{
-	                	m_svHolder.unlockCanvasAndPost(canvas); //½âËøcanvas£¬Ìá½»»­ºÃµÄÍ¼Ïñ
+	                	m_svHolder.unlockCanvasAndPost(canvas); //è§£é”canvasï¼Œæäº¤ç”»å¥½çš„å›¾åƒ
 	                }
 				
 	            }
 			}
 			
 			void draw1(){
-				  if(top > 400) //²âÊÔ³ÌĞò£¬»­µ½×İ×ø±ê³¬¹ı400Ê±²»ÔÙ»­  
+				  if(top > 400) //æµ‹è¯•ç¨‹åºï¼Œç”»åˆ°çºµåæ ‡è¶…è¿‡400æ—¶ä¸å†ç”»  
 			            return;  
 			          
 			        switch(count%5) {  

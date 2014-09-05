@@ -5,19 +5,19 @@ package com.xory.syntax;
 
 /**
  * @author xory
- * public: ËùÓĞ¶¼ÄÜ·ÃÎÊ, ÄÜĞŞÊÎÀà,·½·¨,±äÁ¿,½Ó¿Ú
- * protected: ×ÓÀà,µ±Ç°°üÄÜ·ÃÎÊ,Ö»ÄÜĞŞÊÎ·½·¨,±äÁ¿
- * default: µÈÓÚfriendly, ¼´Ä¬ÈÏÖµ, µ±Ç°°üÄÜ·ÃÎÊ, ÄÜĞŞÊÎÀà,±äÁ¿,·½·¨
- * private: µ±Ç°ÀàÄÜ·ÃÎÊ, ĞŞÊÎ·½·¨,±äÁ¿
- * abstract: ¿ÉÒÔĞŞÊÎÀà,·½·¨, Èç¹ûÓĞabstract·½·¨,ÔòÀà±ØĞëÊ¹ÓÃabstract
- * interface: ±ØĞëÉùÃ÷³É public static final, ¿ÉÒÔ²»Ğ´, Ôò±àÒëÆ÷»áÄ¬ÈÏ
- *                ½Ó¿ÚµÄ·½·¨±ØĞë public ºÍ abstract,Ò²¿ÉÒÔ²»Ğ´
- * ÏêÏ¸ÃèÊö¼û: http://www.w3cschool.cc/java/java-modifier-types.html               
+ * public: æ‰€æœ‰éƒ½èƒ½è®¿é—®, èƒ½ä¿®é¥°ç±»,æ–¹æ³•,å˜é‡,æ¥å£
+ * protected: å­ç±»,å½“å‰åŒ…èƒ½è®¿é—®,åªèƒ½ä¿®é¥°æ–¹æ³•,å˜é‡
+ * default: ç­‰äºfriendly, å³é»˜è®¤å€¼, å½“å‰åŒ…èƒ½è®¿é—®, èƒ½ä¿®é¥°ç±»,å˜é‡,æ–¹æ³•
+ * private: å½“å‰ç±»èƒ½è®¿é—®, ä¿®é¥°æ–¹æ³•,å˜é‡
+ * abstract: å¯ä»¥ä¿®é¥°ç±»,æ–¹æ³•, å¦‚æœæœ‰abstractæ–¹æ³•,åˆ™ç±»å¿…é¡»ä½¿ç”¨abstract
+ * interface: å¿…é¡»å£°æ˜æˆ public static final, å¯ä»¥ä¸å†™, åˆ™ç¼–è¯‘å™¨ä¼šé»˜è®¤
+ *                æ¥å£çš„æ–¹æ³•å¿…é¡» public å’Œ abstract,ä¹Ÿå¯ä»¥ä¸å†™
+ * è¯¦ç»†æè¿°è§: http://www.w3cschool.cc/java/java-modifier-types.html               
  */
 public class Syntax {
 	
-	//½Ó¿ÚÄ¬ÈÏ(ÇÒ±ØĞë)Îªpublic static final,¿É²»Ğ´; ¶ø½Ó¿ÚµÄ·½·¨Ä¬ÈÏ(ÇÒ±ØĞë)public  abstract,¿ÉÒÔ²»Ğ´
-	//½Ó¿ÚµÄ±äÁ¿Ä¬ÈÏ(ÇÒ±ØĞë) public abstract final, ¿ÉÒÔ²»Ğ´
+	//æ¥å£é»˜è®¤(ä¸”å¿…é¡»)ä¸ºpublic static final,å¯ä¸å†™; è€Œæ¥å£çš„æ–¹æ³•é»˜è®¤(ä¸”å¿…é¡»)public  abstract,å¯ä»¥ä¸å†™
+	//æ¥å£çš„å˜é‡é»˜è®¤(ä¸”å¿…é¡») public abstract final, å¯ä»¥ä¸å†™
 	interface IBaseCalculator{
 		Object add( Object obj );
 		public  Object sub( Object obj );
@@ -25,41 +25,41 @@ public class Syntax {
 		public abstract  Object div( Object obj );
 	}
 	
-	//Èı½Çº¯Êı
+	//ä¸‰è§’å‡½æ•°
 	interface ITrigonometric{ 
-		public static final int i =10; //½Ó¿Ú±äÁ¿
-		int j = 20;                           //¿ÉÒÔ²»Ğ´ public abstract final
+		public static final int i =10; //æ¥å£å˜é‡
+		int j = 20;                           //å¯ä»¥ä¸å†™ public abstract final
 		Object sin( Object obj );
 		public  Object cos( Object obj );
 		abstract  Object tag( Object obj );
 		public abstract  Object ctag( Object obj );
 	}
 	
-	interface ISimpleCalculator extends IBaseCalculator, ITrigonometric{ //½Ó¿Ú¶à¼Ì³Ğ½Ó¿Ú
-		public abstract < T >  T Loge( T obj ); //ÉêÃ÷·ºĞÍ·½·¨µÄÓï·¨
+	interface ISimpleCalculator extends IBaseCalculator, ITrigonometric{ //æ¥å£å¤šç»§æ‰¿æ¥å£
+		public abstract < T >  T Loge( T obj ); //ç”³æ˜æ³›å‹æ–¹æ³•çš„è¯­æ³•
 		public abstract < T > void Log10( T obj );
 				
 	}
 	
-	class BaseCalculator implements IBaseCalculator{ //Àà¼Ì³Ğ½Ó¿Ú,±ØĞëÊµÏÖ½Ó¿ÚµÄ·½·¨
+	class BaseCalculator implements IBaseCalculator{ //ç±»ç»§æ‰¿æ¥å£,å¿…é¡»å®ç°æ¥å£çš„æ–¹æ³•
 		public  Object add( Object obj ) { return  obj; }
 		public  Object sub( Object obj ) { return  obj; }
 		public  Object mul( Object obj ) { return  obj; }
 		public  Object div( Object obj ) { return  obj; }
 	}
 	
-	class BaseCalculatorEx extends BaseCalculator{  //Àà¼Ì³ĞÀà
+	class BaseCalculatorEx extends BaseCalculator{  //ç±»ç»§æ‰¿ç±»
 
 	} 
 	
-	abstract class AbsBaseCalculator implements IBaseCalculator{ //³éÏóÀà¼Ì³Ğ½Ó¿Ú
-		public  abstract Object add( Object obj );  //¿ÉÒÔ°Ñ½Ó¿ÚµÄº¯ÊıÖØĞ´ÏÂ
-		//public  Object sub( Object obj ) { return  obj; } //Ò²¿ÉÒÔ²»ÓÃÉùÃ÷
+	abstract class AbsBaseCalculator implements IBaseCalculator{ //æŠ½è±¡ç±»ç»§æ‰¿æ¥å£
+		public  abstract Object add( Object obj );  //å¯ä»¥æŠŠæ¥å£çš„å‡½æ•°é‡å†™ä¸‹
+		//public  Object sub( Object obj ) { return  obj; } //ä¹Ÿå¯ä»¥ä¸ç”¨å£°æ˜
 		//public  Object mul( Object obj ) { return  obj; } 
 		//public  Object div( Object obj ) { return  obj; }
 	}
 	
-	class Calculator implements IBaseCalculator, ITrigonometric{ //Àà¼Ì³Ğ¶à½Ó¿Ú
+	class Calculator implements IBaseCalculator, ITrigonometric{ //ç±»ç»§æ‰¿å¤šæ¥å£
 		public  Object add( Object obj ) { return  obj; }
 		public  Object sub( Object obj ) { return  obj; }
 		public  Object mul( Object obj ) { return  obj; }

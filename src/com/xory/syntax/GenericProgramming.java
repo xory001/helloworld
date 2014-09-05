@@ -9,20 +9,20 @@ import android.util.Log;
 
 /**
  * @author xory
- * Grammar: Óï·¨,°üÀ¨´Ê·¨,¾ä·¨,ÓïÒåµÈ
- * Syntax: ¾ä·¨
- * »ù±¾ÀàĞÍ²»¿ÉÒÔ×÷Îª·ºĞÍ²ÎÊı<boolean byte char short  int  long float double >
- * java ²»ÄÜÖØÔØ²Ù×÷·û
- * ·ºĞÍ¶¨Òå½â¾ö·½°¸: http://www.cnblogs.com/xltcjylove/p/3671943.html
- * 1. Ö÷ÒªÓÃ½Ó¿Ú,·ºĞÍÀàĞÍ´Ó½Ó¿Ú¼Ì³Ğ
- * 2. ÓÃ Class,±ÈÈç class BaseClass,ÄÇÃ´ Class kind = BaseClass.class;
- *          È»ºó¿ÉÒÔÓÃ kind.newInstance()À´¹¹Ôì BaseClassÊµÀı
+ * Grammar: è¯­æ³•,åŒ…æ‹¬è¯æ³•,å¥æ³•,è¯­ä¹‰ç­‰
+ * Syntax: å¥æ³•
+ * åŸºæœ¬ç±»å‹ä¸å¯ä»¥ä½œä¸ºæ³›å‹å‚æ•°<boolean byte char short  int  long float double >
+ * java ä¸èƒ½é‡è½½æ“ä½œç¬¦
+ * æ³›å‹å®šä¹‰è§£å†³æ–¹æ¡ˆ: http://www.cnblogs.com/xltcjylove/p/3671943.html
+ * 1. ä¸»è¦ç”¨æ¥å£,æ³›å‹ç±»å‹ä»æ¥å£ç»§æ‰¿
+ * 2. ç”¨ Class,æ¯”å¦‚ class BaseClass,é‚£ä¹ˆ Class kind = BaseClass.class;
+ *          ç„¶åå¯ä»¥ç”¨ kind.newInstance()æ¥æ„é€  BaseClasså®ä¾‹
  */
 
 public class GenericProgramming {
 	private final static String TAG = "GenericProgramming";
 	
-	//·ºĞÍ½Ó¿Ú½â¾ö·½°¸Ò»:
+	//æ³›å‹æ¥å£è§£å†³æ–¹æ¡ˆä¸€:
 	 public interface Performs { 
 		     void speak(); 
 		     void sit(); 
@@ -57,7 +57,7 @@ public class GenericProgramming {
 			 }
 		 }
 		 
-		 //·ºĞÍ½Ó¿Ú½â¾ö·½°¸¶ş:
+		 //æ³›å‹æ¥å£è§£å†³æ–¹æ¡ˆäºŒ:
 
 		 class Building {} 
 		 class House extends Building {} 

@@ -77,7 +77,7 @@ public class BaseFunction {
 		String str2 = context.getCacheDir().getPath();
 		boolean b = Environment.isExternalStorageRemovable(); 
 	
-		//googleÊ¾Àı´úÂë: »ñµÃcachedir
+		//googleç¤ºä¾‹ä»£ç : è·å¾—cachedir
 	final String cachePath =
             Environment.MEDIA_MOUNTED.equals( Environment.getExternalStorageState() ) ||
                     !Environment.isExternalStorageRemovable() ? context.getExternalCacheDir().getPath() :
@@ -91,10 +91,10 @@ public class BaseFunction {
 //	}
 	
     /*
-     * ²ÉÓÃÁËĞÂµÄ°ì·¨»ñÈ¡APKÍ¼±ê£¬Ö®Ç°µÄÊ§°ÜÊÇÒòÎªandroidÖĞ´æÔÚµÄÒ»¸öBUG,Í¨¹ı
-     * appInfo.publicSourceDir = apkPath;À´ĞŞÕıÕâ¸öÎÊÌâ£¬ÏêÇé²Î¼û:
+     * é‡‡ç”¨äº†æ–°çš„åŠæ³•è·å–APKå›¾æ ‡ï¼Œä¹‹å‰çš„å¤±è´¥æ˜¯å› ä¸ºandroidä¸­å­˜åœ¨çš„ä¸€ä¸ªBUG,é€šè¿‡
+     * appInfo.publicSourceDir = apkPath;æ¥ä¿®æ­£è¿™ä¸ªé—®é¢˜ï¼Œè¯¦æƒ…å‚è§:
      * http://code.google.com/p/android/issues/detail?id=9151
-     * ±¾´úÂëÀ´×Ô: http://www.cnblogs.com/3dant/archive/2012/04/25/2469913.html
+     * æœ¬ä»£ç æ¥è‡ª: http://www.cnblogs.com/3dant/archive/2012/04/25/2469913.html
      */
     public final static Drawable getApkIcon( Context context, String apkPath ) {
     	LogInfo.i( TAG, "BaseFunction::getApkIcon, apk path: " + apkPath );
@@ -115,11 +115,11 @@ public class BaseFunction {
     }
     
 
-    /*·¢ËÍ¹ã²¥¸üĞÂÃ½Ìå¿â(Ê¹µÃÏµÍ³Éú³ÉĞÂÍ¼Æ¬(±ÈÈç¸ÕÅÄÉãµÄÕÕÆ¬)µÄËõÂÔÍ¼Ö®Àà...)
-     * ĞèÒªÒÔÏÂÈ¨ÏŞ
+    /*å‘é€å¹¿æ’­æ›´æ–°åª’ä½“åº“(ä½¿å¾—ç³»ç»Ÿç”Ÿæˆæ–°å›¾ç‰‡(æ¯”å¦‚åˆšæ‹æ‘„çš„ç…§ç‰‡)çš„ç¼©ç•¥å›¾ä¹‹ç±»...)
+     * éœ€è¦ä»¥ä¸‹æƒé™
      * <uses-permission android:name="android.permission.RESTART_PACKAGES" />  
      * <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
-     * À´×Ô: http://www.eoeandroid.com/thread-164210-1-1.html
+     * æ¥è‡ª: http://www.eoeandroid.com/thread-164210-1-1.html
      */ 
     public final static void RefreshMedia( Context context )
     {
@@ -132,26 +132,26 @@ public class BaseFunction {
             Uri.parse("file://" + Environment.getExternalStorageDirectory().getAbsolutePath())));
     }
     
-    //É¨ÃèËùÓĞÍ¼Ïñ,Í¨¹ıÏµÍ³ÄÚÖÃµÄcontentprovider
-    //MIMEÀàĞÍ´óÈ«: 
+    //æ‰«ææ‰€æœ‰å›¾åƒ,é€šè¿‡ç³»ç»Ÿå†…ç½®çš„contentprovider
+    //MIMEç±»å‹å¤§å…¨: 
     public final static List< Map< String, Object >> getAllImages( Context context )
     {
     	List< Map< String, Object >> list = new ArrayList< Map< String, Object >>();
         Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;  
-        // »ñÈ¡ContentResolver  
+        // è·å–ContentResolver  
         ContentResolver contentResolver = context.getContentResolver();  
-        // ²éÑ¯µÄ×Ö¶Î  
+        // æŸ¥è¯¢çš„å­—æ®µ  
         String[] projection = { MediaStore.Images.Media._ID,  
                 MediaStore.Images.Media.DISPLAY_NAME,  
                 MediaStore.Images.Media.DATA, 
                 MediaStore.Images.Media.SIZE };  
-        // Ìõ¼ş  
+        // æ¡ä»¶  
         String selection = MediaStore.Images.Media.MIME_TYPE + "=?";  
-        // Ìõ¼şÖµ(ß@ÑeµÄ²ÎÊı²»ÊÇÍ¼Æ¬µÄ¸ñÊ½£¬¶øÊÇ±ê×¼£¬ËùÓĞ²»Òª¸Ä¶¯)  
+        // æ¡ä»¶å€¼(é€™è£¡çš„å‚æ•°ä¸æ˜¯å›¾ç‰‡çš„æ ¼å¼ï¼Œè€Œæ˜¯æ ‡å‡†ï¼Œæ‰€æœ‰ä¸è¦æ”¹åŠ¨)  
         String[] selectionArgs = { "image/jpeg" };
-        // ÅÅĞò  
+        // æ’åº  
         String sortOrder = MediaStore.Images.Media.DATE_MODIFIED + " desc";  
-        // ²éÑ¯sd¿¨ÉÏµÄÍ¼Æ¬  
+        // æŸ¥è¯¢sdå¡ä¸Šçš„å›¾ç‰‡  
         Cursor cursor = contentResolver.query(uri, projection, selection,  
                 selectionArgs, sortOrder); 
         if ( null != cursor ){
@@ -165,7 +165,7 @@ public class BaseFunction {
 			       	list.add( map );
 		        }while( cursor.moveToNext() );
         	}
-        	cursor.close(); //ÏÔÊ½¹Ø±Õ
+        	cursor.close(); //æ˜¾å¼å…³é—­
         }
 
 //      Cursor cursor = contentResolver.query( uri, null, null, null, null ); 
@@ -179,8 +179,8 @@ public class BaseFunction {
         return list;
     }
     
-    //Õâ¸öº¯Êı²»¿¿Æ×,Ö÷ÒªÊÇÍ¨¹ı¶ÁÈ¡ /data/data/com.android.providers.mediea/database/ 
-    // ÏÂÃæµÄ2¸öÊı¾İ¿â: external.db,internal.db,µ«ÊÇÕâ2¸öÊı¾İ¿âÄÚÈİ¾­³£²»×¼
+    //è¿™ä¸ªå‡½æ•°ä¸é è°±,ä¸»è¦æ˜¯é€šè¿‡è¯»å– /data/data/com.android.providers.mediea/database/ 
+    // ä¸‹é¢çš„2ä¸ªæ•°æ®åº“: external.db,internal.db,ä½†æ˜¯è¿™2ä¸ªæ•°æ®åº“å†…å®¹ç»å¸¸ä¸å‡†
     public final static List< Map< String, Object >> getAllExternalThumbnails( Context context ){
     	List< Map< String, Object >> list = new ArrayList< Map< String, Object >>();
     	String[] projection = { MediaStore.Images.Thumbnails._ID,
@@ -188,8 +188,8 @@ public class BaseFunction {
     			MediaStore.Images.Thumbnails.DATA };
     	Cursor cursor = MediaStore.Images.Thumbnails.queryMiniThumbnails(
     			context.getContentResolver(),
-    			MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI,  //ÄÚÖÃµÄURIÃ»ÓĞËõÂÔÍ¼
-    			MediaStore.Images.Thumbnails.MINI_KIND, projection );//Ö»ÓĞmini,Ã»ÓĞmicroµÄËõÂÔÍ¼
+    			MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI,  //å†…ç½®çš„URIæ²¡æœ‰ç¼©ç•¥å›¾
+    			MediaStore.Images.Thumbnails.MINI_KIND, projection );//åªæœ‰mini,æ²¡æœ‰microçš„ç¼©ç•¥å›¾
     	if ( null != cursor ){
         	if ( cursor.moveToFirst() ){
 		        do{
@@ -198,7 +198,7 @@ public class BaseFunction {
 //		        	  map.put( cursor.getColumnName( i ), 
 //		      			  cursor.getString( i ) );
 //		          }
-// eg(°üÀ¨ËùÓĞ×Ö¶Î):{height=324, _id=1, _data=/mnt/sdcard/DCIM/.thumbnails/1402577687550.jpg, 
+// eg(åŒ…æ‹¬æ‰€æœ‰å­—æ®µ):{height=324, _id=1, _data=/mnt/sdcard/DCIM/.thumbnails/1402577687550.jpg, 
 //		        	kind=1, image_id=223372, width=243}	
 		        	
 		       	    map.put( "id", cursor.getString( cursor.getColumnIndex( MediaStore.Images.Thumbnails._ID ) ) );
@@ -208,7 +208,7 @@ public class BaseFunction {
 			       	list.add( map );
 		        }while( cursor.moveToNext() );
         	}
-        	cursor.close(); //ÏÔÊ½¹Ø±Õ
+        	cursor.close(); //æ˜¾å¼å…³é—­
     	}
     	
     	return list;

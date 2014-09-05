@@ -1,7 +1,7 @@
-/**
- * 
- */
-package com.gensee.utils;
+package com.xory.utility;
+
+
+
 
 import android.app.Activity;
 import android.content.Intent;
@@ -38,7 +38,7 @@ public class ImageUtil {
 	        intent.putExtra( "aspectY", yOutSize );
 	        intent.putExtra( "outputX", xOutSize );
 	        intent.putExtra( "outputY", yOutSize );
-	        intent.putExtra( "scale", true ); //Èç¹ûÎªFALSE,Ôò»áºöÂÔoutputX|YµÄ2¸ö²ÎÊı,¸ù¾İÑ¡¶¨µÄÇøÓòÊä³öÊµ¼Ê´óĞ¡,,ÎªTRUEÔòËõ·Åµ½outputX|YµÄ´óĞ¡
+	        intent.putExtra( "scale", true ); //å¦‚æœä¸ºFALSE,åˆ™ä¼šå¿½ç•¥outputX|Yçš„2ä¸ªå‚æ•°,æ ¹æ®é€‰å®šçš„åŒºåŸŸè¾“å‡ºå®é™…å¤§å°,,ä¸ºTRUEåˆ™ç¼©æ”¾åˆ°outputX|Yçš„å¤§å°
 	        intent.putExtra( "return-data", false );
 	        intent.putExtra( MediaStore.EXTRA_OUTPUT, uriSave );
         // intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
@@ -46,7 +46,7 @@ public class ImageUtil {
 	        activity.startActivityForResult( intent, requstCode );
 	        ret = true;
 		}catch( Exception e ){
-			GenseeLog.i( "ImageUtil::CropImage, exception: " + e.toString() );
+
 		}
 		return ret;
 	}
@@ -72,7 +72,7 @@ public class ImageUtil {
             intent.putExtra( "aspectY", yOutSize );
             intent.putExtra( "outputX", xOutSize );
             intent.putExtra( "outputY", yOutSize );
-            intent.putExtra( "scale", true ); //Èç¹ûÎªFALSE,Ôò»áºöÂÔoutputX|YµÄ2¸ö²ÎÊı,¸ù¾İÑ¡¶¨µÄÇøÓòÊä³öÊµ¼Ê´óĞ¡,,ÎªTRUEÔòËõ·Åµ½outputX|YµÄ´óĞ¡
+            intent.putExtra( "scale", true ); //å¦‚æœä¸ºFALSE,åˆ™ä¼šå¿½ç•¥outputX|Yçš„2ä¸ªå‚æ•°,æ ¹æ®é€‰å®šçš„åŒºåŸŸè¾“å‡ºå®é™…å¤§å°,,ä¸ºTRUEåˆ™ç¼©æ”¾åˆ°outputX|Yçš„å¤§å°
             intent.putExtra( "return-data", false );
             intent.putExtra( MediaStore.EXTRA_OUTPUT, uriSave );
          // intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
@@ -80,7 +80,7 @@ public class ImageUtil {
 	        activity.startActivityForResult( intent, requstCode );
 	        ret = true;
 		}catch( Exception e ){
-			GenseeLog.i( "ImageUtil::SelectAndCropImage, exception: " + e.toString() );
+
 		}
 		return ret;
 	}

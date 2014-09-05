@@ -64,7 +64,7 @@ public class ActivityNotification extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		if (R.id.btn_start == v.getId()) {
-//			timer = new Timer(); //被cancel之后不能继续调用schedule,否则报错
+//			timer = new Timer(); //琚玞ancel涔嬪悗涓嶈兘缁х画璋冪敤schedule,鍚﹀垯鎶ラ敊
 //			timer.schedule(new taskProgress(), 100, 1000 );
 			
 			Notification notifyStart = new Notification();
@@ -108,7 +108,7 @@ public class ActivityNotification extends Activity implements OnClickListener {
 		//Toast.makeText(v.getContext() , "notify clicked", Toast.LENGTH_SHORT ).show();
 	}
 	
-	//如果不定义成静态类,会有内存泄露问题
+	//濡傛灉涓嶅畾涔夋垚闈欐�佺被,浼氭湁鍐呭瓨娉勯湶闂
 		static class HandleProgress extends Handler {
 			private final WeakReference< ActivityNotification > mActivity;
 			

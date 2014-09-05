@@ -105,7 +105,7 @@ public class SampleBaseAdapter extends BaseAdapter {
 	}
 	
 
-	//holderµÄ×÷ÓÃ¾ÍÊÇµ±item viewÖØĞÂÀûÓÃµÄÊ±ºò,Ê¡È¥findViewByIdÕÒ×ÓidÏûºÄµÄÊ±¼ä
+	//holderçš„ä½œç”¨å°±æ˜¯å½“item viewé‡æ–°åˆ©ç”¨çš„æ—¶å€™,çœå»findViewByIdæ‰¾å­idæ¶ˆè€—çš„æ—¶é—´
 	class Holder{  
 	    TextView text;  
 	    Button btn;  

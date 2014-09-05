@@ -8,9 +8,9 @@ import android.graphics.Paint.Style;
 import android.view.View;
 
 /*
-*canvasµÄrotate·½·¨,ÊÇ»­²¼Ğı×ª,Í¬Ê±×ø±êÒ²¸úËæ»­²¼Ğı×ª,µ«ÊÇÏÔÊ¾ÇøÓò²»±ä,
-*Òò´ËÈç¹ûĞı×ªºóµÄ×ø±ê²»ÔÚÆÁÄ»ÄÚ,Ôò²»»áÏÔÊ¾
-*translateÎªÉèÖÃ×ø±êÔ­µã
+*canvasçš„rotateæ–¹æ³•,æ˜¯ç”»å¸ƒæ—‹è½¬,åŒæ—¶åæ ‡ä¹Ÿè·Ÿéšç”»å¸ƒæ—‹è½¬,ä½†æ˜¯æ˜¾ç¤ºåŒºåŸŸä¸å˜,
+*å› æ­¤å¦‚æœæ—‹è½¬åçš„åæ ‡ä¸åœ¨å±å¹•å†…,åˆ™ä¸ä¼šæ˜¾ç¤º
+*translateä¸ºè®¾ç½®åæ ‡åŸç‚¹
 */
 public class ViewDrawGraphics extends View {
 
