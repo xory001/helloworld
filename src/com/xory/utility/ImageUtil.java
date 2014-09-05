@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.xory.utility;
+package com.gensee.utils;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -38,7 +38,7 @@ public class ImageUtil {
 	        intent.putExtra( "aspectY", yOutSize );
 	        intent.putExtra( "outputX", xOutSize );
 	        intent.putExtra( "outputY", yOutSize );
-	        intent.putExtra( "scale", true ); //濡傛灉涓篎ALSE,鍒欎細蹇界暐outputX|Y鐨?涓弬鏁?鏍规嵁閫夊畾鐨勫尯鍩熻緭鍑哄疄闄呭ぇ灏?,涓篢RUE鍒欑缉鏀惧埌outputX|Y鐨勫ぇ灏?
+	        intent.putExtra( "scale", true ); //如果为FALSE,则会忽略outputX|Y的2个参数,根据选定的区域输出实际大小,,为TRUE则缩放到outputX|Y的大小
 	        intent.putExtra( "return-data", false );
 	        intent.putExtra( MediaStore.EXTRA_OUTPUT, uriSave );
         // intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
@@ -46,7 +46,7 @@ public class ImageUtil {
 	        activity.startActivityForResult( intent, requstCode );
 	        ret = true;
 		}catch( Exception e ){
-			//Loginfo.i( "ImageUtil::CropImage, exception: " + e.toString() );
+			GenseeLog.i( "ImageUtil::CropImage, exception: " + e.toString() );
 		}
 		return ret;
 	}
@@ -72,7 +72,7 @@ public class ImageUtil {
             intent.putExtra( "aspectY", yOutSize );
             intent.putExtra( "outputX", xOutSize );
             intent.putExtra( "outputY", yOutSize );
-            intent.putExtra( "scale", true ); //濡傛灉涓篎ALSE,鍒欎細蹇界暐outputX|Y鐨?涓弬鏁?鏍规嵁閫夊畾鐨勫尯鍩熻緭鍑哄疄闄呭ぇ灏?,涓篢RUE鍒欑缉鏀惧埌outputX|Y鐨勫ぇ灏?
+            intent.putExtra( "scale", true ); //如果为FALSE,则会忽略outputX|Y的2个参数,根据选定的区域输出实际大小,,为TRUE则缩放到outputX|Y的大小
             intent.putExtra( "return-data", false );
             intent.putExtra( MediaStore.EXTRA_OUTPUT, uriSave );
          // intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
@@ -80,7 +80,7 @@ public class ImageUtil {
 	        activity.startActivityForResult( intent, requstCode );
 	        ret = true;
 		}catch( Exception e ){
-			//GenseeLog.i( "ImageUtil::SelectAndCropImage, exception: " + e.toString() );
+			GenseeLog.i( "ImageUtil::SelectAndCropImage, exception: " + e.toString() );
 		}
 		return ret;
 	}
