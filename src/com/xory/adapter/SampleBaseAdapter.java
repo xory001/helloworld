@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import com.xory.helloworld.Const;
 import com.xory.helloworld.R;
-import com.xory.utility.BaseFunction;
+import com.xory.lib.utility.BaseFunction;
 
 public class SampleBaseAdapter extends BaseAdapter {
 	private OnClickListener mClickListener = null;

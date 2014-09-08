@@ -11,6 +11,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -18,7 +19,9 @@ import android.view.View.OnClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.xory.utility.BaseFunction;
+import com.xory.lib.sys.StorageManagerEx;
+import com.xory.lib.sys.StorageVolume;
+import com.xory.lib.utility.BaseFunction;
 
 public class MainActivity extends ListActivity implements OnClickListener{
 
@@ -51,9 +54,26 @@ public class MainActivity extends ListActivity implements OnClickListener{
 	                android.R.layout.simple_list_item_1, new String[] { "title" },
 	                new int[] { android.R.id.text1 }));
 		//setContentView(R.layout.activity_main);
+		 
+		 StorageManagerEx storageMgr = new StorageManagerEx( this );
+		 StorageVolume[] volumes = storageMgr.getVolumeList();
+		 String[] mountPath = storageMgr.getVolumePaths();
+	
 		
 		// BaseFunction.getDisplayMetrics( this );
-		//String[] volumePaths = BaseFunction.getVolumeList( this );
+		String[] volumePaths = BaseFunction.getVolumeList( this );
+		String strDcim = Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_DCIM ).toString();
+		String strSd = Environment.getRootDirectory().toString();
+		String strSDcard = Environment.getExternalStorageDirectory().toString();
+		String strSdcardUrl =  Environment.getExternalStorageDirectory().toURI().toString();
+		for ( String strPath: volumePaths ){
+			if ( strPath.equals( strSDcard )){
+				boolean bremove = Environment.isExternalStorageRemovable();
+				int j = 0;
+				j++;
+			}
+		}
+		Environment.getExternalStorageState();
 		//String strPath = BaseFunction.getExternalStoragePath( this );
 		//List< Map< String, Object >> list = BaseFunction.getAllImages( this );
 //		List< Map< String, Object >> list = BaseFunction.getAllExternalThumbnails( this );

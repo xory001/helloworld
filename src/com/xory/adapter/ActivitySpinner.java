@@ -11,7 +11,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.xory.helloworld.R;
-import com.xory.utility.BaseFunction;
+import com.xory.lib.utility.BaseFunction;
 
 public class ActivitySpinner extends Activity implements OnItemSelectedListener{
 	

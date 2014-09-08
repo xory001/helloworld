@@ -25,7 +25,7 @@ import android.widget.ProgressBar;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
-import com.xory.utility.StatusBarMgr;
+import com.xory.lib.utility.StatusBarMgr;
 
 /**
  * @author xory

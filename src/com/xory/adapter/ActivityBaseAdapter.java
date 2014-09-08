@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xory.helloworld.R;
-import com.xory.utility.BaseFunction;
+import com.xory.lib.utility.BaseFunction;
 
 public class ActivityBaseAdapter extends Activity implements OnClickListener, OnItemClickListener {
 	private ListView mListView = null;

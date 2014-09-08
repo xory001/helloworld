@@ -1,4 +1,4 @@
-package com.xory.utility;
+package com.xory.lib.utility;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
