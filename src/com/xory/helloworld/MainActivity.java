@@ -58,6 +58,7 @@ public class MainActivity extends ListActivity implements OnClickListener{
 		 StorageManagerEx storageMgr = new StorageManagerEx( this );
 		 StorageVolume[] volumes = storageMgr.getVolumeList();
 		 String[] mountPath = storageMgr.getVolumePaths();
+		 StorageManagerEx.GetFreeStorageSize( "/mnt/sdcard" );
 	
 		
 		// BaseFunction.getDisplayMetrics( this );

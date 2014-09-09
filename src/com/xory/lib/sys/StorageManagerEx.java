@@ -7,6 +7,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import android.content.Context;
+import android.os.Environment;
+import android.os.StatFs;
 import android.os.storage.OnObbStateChangeListener;
 import android.os.storage.StorageManager;
 
@@ -27,6 +29,18 @@ public class StorageManagerEx {
 		mStorageMgr = (StorageManager) context
 				.getSystemService(Context.STORAGE_SERVICE);
 
+	}
+	
+	/**
+	 * 
+	 * @param strPath, the directory, like this: Environment.getDataDirectory(), or /mnt/sdcard eg.
+	 * @return MB
+	 */
+	public static final float GetFreeStorageSize( String strPath ){
+		 StatFs stat = new StatFs( strPath );
+	     long sizeBytes  = stat.getAvailableBlocks() * stat.getBlockSize();
+	     float sizeMB = (float)( sizeBytes / 1024 /1024 );
+	     return sizeMB;
 	}
 
 	public boolean mountObb(String filename, String key,
