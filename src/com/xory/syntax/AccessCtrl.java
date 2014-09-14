@@ -5,6 +5,7 @@ package com.xory.syntax;
 
 /**
  * @author xory
+ * @author 访问控制修饰
  * public: 所有都能访问, 能修饰类,方法,变量,接口
  * protected: 子类,当前包能访问,只能修饰方法,变量
  * default: 等于friendly, 即默认值, 当前包能访问, 能修饰类,变量,方法
@@ -14,7 +15,13 @@ package com.xory.syntax;
  *                接口的方法必须 public 和 abstract,也可以不写
  * 详细描述见: http://www.w3cschool.cc/java/java-modifier-types.html               
  */
-public class Syntax {
+public class AccessCtrl {
+	
+	private int mA;
+	static {
+		int mB;
+		int mC;
+	};
 	
 	//接口默认(且必须)为public static final,可不写; 而接口的方法默认(且必须)public  abstract,可以不写
 	//接口的变量默认(且必须) public abstract final, 可以不写

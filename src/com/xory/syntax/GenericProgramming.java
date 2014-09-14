@@ -41,7 +41,7 @@ public class GenericProgramming {
 		     public void oilChange() {} 
 		 } 
 		 class Communicate { 
-		     public  <T extends Performs> void perform(T performer) { 
+		     public  <T extends Performs> void perform(T performer) {  //泛型方法声明
 		         performer.speak(); 
 		         performer.sit(); 
 		     } 

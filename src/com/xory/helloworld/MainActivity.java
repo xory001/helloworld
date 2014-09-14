@@ -1,9 +1,12 @@
 package com.xory.helloworld;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Observable;
+import java.util.Observer;
 
 import android.app.ListActivity;
 import android.app.Notification;
@@ -22,8 +25,10 @@ import android.widget.SimpleAdapter;
 import com.xory.lib.sys.StorageManagerEx;
 import com.xory.lib.sys.StorageVolume;
 import com.xory.lib.utility.BaseFunction;
+import com.xory.lib.utility.LogInfo;
+import com.xory.syntax.StandardSubClass;
 
-public class MainActivity extends ListActivity implements OnClickListener{
+public class MainActivity extends ListActivity implements OnClickListener,Observer{
 
 	final private String TAG = "helloworld.MainActivity";
 	private NotificationManager  notifyMgr;
@@ -60,7 +65,9 @@ public class MainActivity extends ListActivity implements OnClickListener{
 		 String[] mountPath = storageMgr.getVolumePaths();
 		 StorageManagerEx.GetFreeStorageSize( "/mnt/sdcard" );
 	
-		
+		//syntax package
+		 syntaxTest();
+		 
 		// BaseFunction.getDisplayMetrics( this );
 		String[] volumePaths = BaseFunction.getVolumeList( this );
 		String strDcim = Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_DCIM ).toString();
@@ -180,5 +187,32 @@ public class MainActivity extends ListActivity implements OnClickListener{
 			break;
 		}
 		
+	}
+
+
+
+	@Override
+	public void update(Observable observable, Object data) {
+				
+	}
+	
+	void syntaxTest(){
+//		int n =  ClassInitSquence.n3;
+//		ClassInitSquence cis = new ClassInitSquence();
+//		int n1 = ClassInitSquence.n3;
+		try {
+			Class Class_ClassInitSquence = Class.forName( "com.xory.syntax.ClassInitSquence", false, getClassLoader() );
+			Field fld = Class_ClassInitSquence.getDeclaredField( "n3" );
+			int n3 = fld.getInt( null );
+			ClassLoader cld = Class_ClassInitSquence.getClassLoader();
+			LogInfo.i("");
+		} catch ( Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		StandardSubClass ssc = new StandardSubClass( "standard sub class", "data0" );
+		
+		LogInfo.i( ssc.toString() );
 	}
 }
