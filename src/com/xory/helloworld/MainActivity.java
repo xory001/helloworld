@@ -100,8 +100,11 @@ public class MainActivity extends ListActivity implements OnClickListener,Observ
     protected void onListItemClick(ListView l, View v, int position, long id) {
         Map<String, Object> map = (Map<String, Object>)l.getItemAtPosition(position);
     	Intent intent = new Intent( this, ActivityManager.class );
-    	intent.putExtra("data",  new StdSubParcelable() );
-    	intent.putExtra( Const.EXTRA_KEY, map.get( "package" ).toString() );
+    	StdSubParcelable ssb = new StdSubParcelable();
+    	ssb.init();
+    	//ssb.mnContainerHashCode = ssb.hashCode();
+    	intent.putExtra("data",  ssb );
+       	intent.putExtra( Const.EXTRA_KEY, map.get( "package" ).toString() );
     	startActivity(intent);
     }
 

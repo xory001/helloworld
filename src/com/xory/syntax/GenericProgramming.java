@@ -3,12 +3,15 @@
  */
 package com.xory.syntax;
 
+import java.lang.reflect.Array;
+
 import android.util.Log;
 
 
 
 /**
  * @author xory
+ * tag 泛型数组
  * Grammar: 语法,包括词法,句法,语义等
  * Syntax: 句法
  * 基本类型不可以作为泛型参数<boolean byte char short  int  long float double >
@@ -21,6 +24,21 @@ import android.util.Log;
 
 public class GenericProgramming {
 	private final static String TAG = "GenericProgramming";
+	
+	//泛型数组的创建:Array.newInstance
+//    @Override public <T> T[] toArray(T[] contents) {
+//        int s = size;
+//        if (contents.length < s) {
+//            @SuppressWarnings("unchecked") T[] newArray
+//                = (T[]) Array.newInstance(contents.getClass().getComponentType(), s);
+//            contents = newArray;
+//        }
+//        System.arraycopy(this.array, 0, contents, 0, s);
+//        if (contents.length > s) {
+//            contents[s] = null;
+//        }
+//        return contents;
+//    }
 	
 	//泛型接口解决方案一:
 	 public interface Performs { 
