@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.xory.app.StdSubParcelable;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -34,6 +36,7 @@ public class ActivityManager extends ListActivity {
 		
         Intent intent = getIntent();
         String strPath = intent.getStringExtra( Const.EXTRA_KEY );
+        StdSubParcelable ssp = intent.getParcelableExtra("data");
         
         List< Map< String, Object >> list = null;
         if ( null == strPath ) {

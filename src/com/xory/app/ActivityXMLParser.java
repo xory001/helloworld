@@ -59,14 +59,14 @@ public class ActivityXMLParser extends Activity implements OnClickListener {
 	private void doXmlPullParser( int resId ) {
 		try{
 			XmlResourceParser xmlParser = getResources().getXml( resId );
-			int nEventType = xmlParser.next(); 
+			int nEventType = xmlParser.next();  //否则XmlResourceParser.START_DOCUMENT会来两次
 			while ( nEventType != XmlResourceParser.END_DOCUMENT  ){
 				switch( xmlParser.getEventType() ){
-				case XmlResourceParser.START_DOCUMENT:
+				case XmlResourceParser.START_DOCUMENT: //文档开始
 					Log.i( TAG, "start document: " );
 					break;
 					
-				case XmlResourceParser.START_TAG:
+				case XmlResourceParser.START_TAG: //开始一个标志,可以读取属性
 					String strTag = xmlParser.getName();
 					String strNameSpace = xmlParser.getNamespace();
 					Log.i( TAG, "start tag: " + strTag + ", name space: " + strNameSpace );
@@ -79,12 +79,12 @@ public class ActivityXMLParser extends Activity implements OnClickListener {
 					}
 					break;
 					
-				case XmlPullParser.TEXT:
+				case XmlPullParser.TEXT: //读取到标志内容
 					String text = xmlParser.getText();
 					Log.i( TAG, "text: " + text );
 					break;
 					
-				case XmlResourceParser.END_TAG:
+				case XmlResourceParser.END_TAG: //标志结束
 					Log.i( TAG, "end tag:  " + xmlParser.getName()  );
 					break;
 					

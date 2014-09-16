@@ -22,6 +22,7 @@ import android.view.View.OnClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.xory.app.StdSubParcelable;
 import com.xory.lib.sys.StorageManagerEx;
 import com.xory.lib.sys.StorageVolume;
 import com.xory.lib.utility.BaseFunction;
@@ -82,30 +83,7 @@ public class MainActivity extends ListActivity implements OnClickListener,Observ
 			}
 		}
 		Environment.getExternalStorageState();
-		//String strPath = BaseFunction.getExternalStoragePath( this );
-		//List< Map< String, Object >> list = BaseFunction.getAllImages( this );
-//		List< Map< String, Object >> list = BaseFunction.getAllExternalThumbnails( this );
-//		
-//		Log.i( TAG, "onCreate" );
-//		findViewById( R.id.StartedServiceTest ).setOnClickListener( this );
-//		findViewById( R.id.BoundServiceTest ).setOnClickListener( this );
-//		
-//		findViewById( R.id.btn_draw_activity ).setOnClickListener( this );
-//		
-//		findViewById( R.id.btn_bc_activity ).setOnClickListener( this );
-//		findViewById( R.id.btn_send_inner_cast ).setOnClickListener( this );
-//		findViewById( R.id.btn_send_global_cast ).setOnClickListener( this );
-//		
-//		findViewById( R.id.btn_notify_show ).setOnClickListener( this );
-//		findViewById( R.id.btn_notify_start ).setOnClickListener( this );
-//		
-//		findViewById( R.id.btn_start_notify_activity ).setOnClickListener( this );
-//		
-//		findViewById( R.id.btn_graphics ).setOnClickListener( this );
-//		
-//		findViewById( R.id.btn_adapter_test ).setOnClickListener( this );
-//		
-//		notifyMgr = (NotificationManager)getSystemService( NOTIFICATION_SERVICE );
+
 		
 		
 	}
@@ -122,6 +100,7 @@ public class MainActivity extends ListActivity implements OnClickListener,Observ
     protected void onListItemClick(ListView l, View v, int position, long id) {
         Map<String, Object> map = (Map<String, Object>)l.getItemAtPosition(position);
     	Intent intent = new Intent( this, ActivityManager.class );
+    	intent.putExtra("data",  new StdSubParcelable() );
     	intent.putExtra( Const.EXTRA_KEY, map.get( "package" ).toString() );
     	startActivity(intent);
     }
