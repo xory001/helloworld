@@ -12,6 +12,9 @@ import android.view.MotionEvent;
 
 /**
  * @author xory
+ * @category activity模拟dialog,对话框
+ * 
+ * @see 参考:http://www.cnblogs.com/winxiang/archive/2012/11/20/2778729.html
  *
  */
 public class ActivityDialogStyle extends Activity {

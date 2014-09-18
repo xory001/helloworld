@@ -139,7 +139,17 @@
                 <category android:name="com.xory.helloworld.category" />
             </intent-filter>
         </activity>
-                      
+        
+		<!-- ************** -->
+		<!-- gesture -->
+		<!-- ************** -->
+		<activity android:name="com.xory.gesture.ActivityMutilTouchRecognise" >
+            <intent-filter>
+                <action android:name="com.xory.helloworld.action" />
+                <category android:name="com.xory.helloworld.category" />
+            </intent-filter>
+        </activity>
+                              
     </application>
 	
 </manifest>

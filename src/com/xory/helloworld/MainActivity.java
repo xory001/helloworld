@@ -39,9 +39,10 @@ public class MainActivity extends ListActivity implements OnClickListener,Observ
 								//title						package
 		String[] strItemText = {"Adapter and AdapterView", "com.xory.adapter",
 								"multi thread and async operate", "com.xory.thread",
-								"graphics", "com.xory.graphics",
-								"app class", "com.xory.app",
-								"views", "com.xory.views"};
+								"graphics", 									"com.xory.graphics",
+								"app class", 									"com.xory.app",
+								"views", 										"com.xory.views",
+								"gesture",										"com.xory.gesture"};
 		for( int i = 0; i < strItemText.length; i += 2 ){
 			Map< String, Object > mapActivity = new HashMap< String, Object >();
 			mapActivity.put( "title", strItemText[i] );

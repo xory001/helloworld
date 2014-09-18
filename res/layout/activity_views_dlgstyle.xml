@@ -3,7 +3,7 @@
     android:id="@+id/exit_layout"
     android:layout_width="280dp"
     android:layout_height="wrap_content"
-    android:background="#999"
+    android:background="@drawable/text_rect"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
@@ -36,6 +36,7 @@
             android:id="@+id/exitBtn0"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn_send"
             android:gravity="center"
             android:text="是"
             android:textColor="#fff"
@@ -46,7 +47,8 @@
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-             android:gravity="center"
+            android:background="@drawable/btn_send"
+            android:gravity="center"
             android:text="否"
             android:textColor="#333"
             android:textSize="16sp" />
