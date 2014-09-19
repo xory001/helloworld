@@ -8,7 +8,7 @@ import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
+import android.view.Window;
 
 /**
  * @author xory
@@ -19,6 +19,17 @@ public class ActivityMutilTouchRecognise extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		Window window = getWindow();
+		View decorView = window.getDecorView();
+		Class cls = decorView.getClass();
+		String canonicalName =  cls.getCanonicalName(); //类名
+		Class clsclas = cls.getClass(); //类对象的类对象
+		Class cls_parent = cls.getSuperclass(); //基类
+		Class []classes = cls.getClasses(); //一堆类
+		Class []classes_d = cls.getDeclaredClasses(); //一个类;
+		
+		
 		
 		View view = new View(this){
 			@Override
