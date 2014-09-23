@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
+import com.xory.lib.utility.BaseFunction;
 import com.xory.lib.utility.LogInfo;
 
 /**
@@ -27,9 +28,11 @@ public class ActivityMutilTouchRecognise extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		Window window = getWindow();
-		List<View> list = new LinkedList<View>();
-		list.add( window.getDecorView()  );
-		emunAllChilds( list );
+		View root =  window.getDecorView();
+//		root.setTag( 0 );
+//		List<View> list = new LinkedList<View>();
+//		list.add( root );
+//		emunAllChilds( list, 0 );
 	
 		Class cls =  window.getDecorView().getClass();
 		String canonicalName =  cls.getCanonicalName(); //类名
@@ -60,6 +63,30 @@ public class ActivityMutilTouchRecognise extends Activity {
 	
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
+		int nAction = event.getActionMasked();
+		int nIndex = event.getActionIndex();
+		LogInfo.i( "onTouchEvent, Action: " + BaseFunction.actionToString( nAction )
+				+ ", size: " + event.getSize() + "TouchMajor:"  + event.getToolMajor( nIndex )
+				+ ", TouchMinor:" + event.getToolMinor( nIndex )  );
+		
+		switch( nAction ){
+		case MotionEvent.ACTION_DOWN:
+			break;
+			
+		case MotionEvent.ACTION_POINTER_DOWN:
+			break;
+			
+		case MotionEvent.ACTION_MOVE:
+			break;
+			
+		case MotionEvent.ACTION_UP:
+			break;
+			
+		case MotionEvent.ACTION_POINTER_UP:
+			break;
+			
+		}
+
 		return super.onTouchEvent(event);
 	}
 	
@@ -68,16 +95,18 @@ public class ActivityMutilTouchRecognise extends Activity {
 		return super.dispatchTouchEvent(ev);
 	}
 	 
-	 public void emunAllChilds( List<View> list ){
+	 public void emunAllChilds( List<View> list, int nLevel ){
 		 if( list.size() > 0  ){
 			 View view =  list.remove( 0 );
-			 LogInfo.i( "emunAllChilds: ", view.getClass().getCanonicalName() );
+			 LogInfo.i( "emunAllChilds level: " + view.getTag() + ", name: " +  view.getClass().getCanonicalName() );
 			 if( view instanceof ViewGroup ){
 				 for(  int i = 0; i < ((ViewGroup)view).getChildCount(); i++){
-					 list.add( ((ViewGroup)view).getChildAt( i)  );
+					 View v = ((ViewGroup)view).getChildAt( i);
+					 v.setTag( nLevel );
+					 list.add(  v  );
 				 }
 			 }
-			 emunAllChilds( list );
+			 emunAllChilds( list, ++nLevel );
 		 }
 	 }
 }
