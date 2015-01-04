@@ -39,6 +39,7 @@ public class ActivityGalleryOfViewFlipper extends Activity {
 		setContentView( R.layout.activity_views_gallery );
 		mViewFlipper = new ViewFlipper( this );
 		mViewFlipper.setBackgroundColor(0xff0000ff);
+		//mViewFlipper.
 		
 		int nCount = 0;
 		mCursorImage = Media.query( getContentResolver(), Media.EXTERNAL_CONTENT_URI, new String[]{Media.DATA, Media._ID });
@@ -53,7 +54,7 @@ public class ActivityGalleryOfViewFlipper extends Activity {
 				mViewFlipper.addView( iv );
 				
 				nCount++;
-				if( nCount > 2 ){
+				if( nCount > 3 ){
 					break;
 				}
 				

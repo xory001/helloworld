@@ -23,10 +23,10 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.xory.app.StdSubParcelable;
-import com.xory.lib.sys.StorageManagerEx;
-import com.xory.lib.sys.StorageVolume;
 import com.xory.lib.utility.BaseFunction;
 import com.xory.lib.utility.LogInfo;
+import com.xory.lib.utility.StorageManagerEx;
+import com.xory.lib.utility.StorageVolume;
 import com.xory.syntax.StandardSubClass;
 
 public class MainActivity extends ListActivity implements OnClickListener,Observer{
@@ -42,7 +42,8 @@ public class MainActivity extends ListActivity implements OnClickListener,Observ
 								"graphics", 									"com.xory.graphics",
 								"app class", 									"com.xory.app",
 								"views", 										"com.xory.views",
-								"gesture",										"com.xory.gesture"};
+								"gesture",										"com.xory.gesture",
+								"mutil meidia",                               "com.xory.mutilmedia"};
 		for( int i = 0; i < strItemText.length; i += 2 ){
 			Map< String, Object > mapActivity = new HashMap< String, Object >();
 			mapActivity.put( "title", strItemText[i] );

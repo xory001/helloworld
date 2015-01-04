@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.xory.lib.sys;
+package com.xory.lib.utility;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -12,7 +12,6 @@ import android.os.StatFs;
 import android.os.storage.OnObbStateChangeListener;
 import android.os.storage.StorageManager;
 
-import com.xory.lib.utility.LogInfo;
 
 /**
  * @author 朱起伟

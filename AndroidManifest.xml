@@ -155,6 +155,16 @@
                 <category android:name="com.xory.helloworld.category" />
             </intent-filter>
         </activity>
+        
+		<!-- ************** -->
+		<!-- mutilmedia -->
+		<!-- ************** -->
+		<activity android:name="com.xory.mutilmedia.ActivityCamera" >
+            <intent-filter>
+                <action android:name="com.xory.helloworld.action" />
+                <category android:name="com.xory.helloworld.category" />
+            </intent-filter>
+        </activity>
                               
     </application>
 	

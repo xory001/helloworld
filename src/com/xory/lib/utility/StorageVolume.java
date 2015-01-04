@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.xory.lib.sys;
+package com.xory.lib.utility;
 
 import android.os.Parcel;
 import android.os.Parcelable;
